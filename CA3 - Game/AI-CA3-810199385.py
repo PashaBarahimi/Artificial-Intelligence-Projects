@@ -6,9 +6,10 @@ from copy import deepcopy
 from enum import Enum
 from typing import Union
 from sys import argv
+from timeit import default_timer as timer
 
 VERTICES_COUNT = 6
-SLEEP_TIME = 1
+SLEEP_TIME = 1.5
 
 Line = tuple[int, int]
 
@@ -29,7 +30,7 @@ class MinimaxType(Enum):
         return MinimaxType.MIN if self == MinimaxType.MAX else MinimaxType.MAX
 
 
-def winner(player_moves: dict[Player, list[Line]]) -> Union[Player, None]:
+def winner(player_moves: dict[Player, list[Line]]) -> tuple[Union[Player, None], Union[tuple[Line, Line, Line], None]]:
     for color, moves in player_moves.items():
         if len(moves) < 3:
             continue
@@ -37,8 +38,8 @@ def winner(player_moves: dict[Player, list[Line]]) -> Union[Player, None]:
             for j in range(i + 1, len(moves) - 1):
                 for k in range(j + 1, len(moves)):
                     if len(set(moves[i] + moves[j] + moves[k])) == 3:
-                        return ~color
-    return None
+                        return ~color, (moves[i], moves[j], moves[k])
+    return None, None
 
 
 class SimGui:
@@ -67,9 +68,9 @@ class SimGui:
         turtle.color(color)
         turtle.dot(15)
 
-    def _draw_line(self, p1: Dot, p2: Dot, color: str) -> None:
+    def _draw_line(self, p1: Dot, p2: Dot, color: str, pensize: int = 5) -> None:
         turtle.up()
-        turtle.pensize(3)
+        turtle.pensize(pensize)
         turtle.goto(p1)
         turtle.down()
         turtle.color(color)
@@ -79,17 +80,27 @@ class SimGui:
         for dot in self._dots:
             self._draw_dot(dot[0], dot[1], 'dark gray')
 
+    def _lineToDots(self, line: Line) -> tuple[Dot, Dot]:
+        return ((math.cos(math.radians(line[0] * 360 // self._vertices_count)),
+                 math.sin(math.radians(line[0] * 360 // self._vertices_count))),
+                (math.cos(math.radians(line[1] * 360 // self._vertices_count)),
+                 math.sin(math.radians(line[1] * 360 // self._vertices_count))))
+
     def draw(self, player_moves: dict[Player, list[Line]] = {}) -> None:
         turtle.clear()
         self._draw_board()
         for color, moves in player_moves.items():
             for move in moves:
-                self._draw_line((math.cos(math.radians(move[0] * 360 // self._vertices_count)),
-                                 math.sin(math.radians(move[0] * 360 // self._vertices_count))),
-                                (math.cos(math.radians(move[1] * 360 // self._vertices_count)),
-                                 math.sin(math.radians(move[1] * 360 // self._vertices_count))),
-                                color.value)
+                self._draw_line(*self._lineToDots(move), color.value)
         self._screen.update()
+
+    def show_triangle(self, triangle: tuple[Line, Line, Line]) -> None:
+        for line in triangle:
+            self._draw_line(*self._lineToDots(line), 'white', 3)
+        self._screen.update()
+
+    def close(self) -> None:
+        self._screen.bye()
 
 
 class MinimaxNode:
@@ -125,25 +136,24 @@ class MinimaxNode:
         self._prune = parent._prune if parent else prune
 
     def _evaluate(self) -> float:
-        w = winner(self._player_moves)
+        w = winner(self._player_moves)[0]
         if w is not None:
             return math.inf if w == Player.RED else -math.inf
-        if self._player == Player.RED:
-            red_moves_left = 0
-            for move in self._available_moves:
-                if winner({Player.RED: self._player_moves[Player.RED] + [move]}) is not Player.BLUE:
-                    red_moves_left += 1
-            return red_moves_left
-        else:
-            blue_moves_left = 0
-            for move in self._available_moves:
-                if winner({Player.BLUE: self._player_moves[Player.BLUE] + [move]}) is not Player.RED:
-                    blue_moves_left += 1
-            return -blue_moves_left
+        h = 0
+        for move in self._available_moves:
+            res = winner({self._player: self._player_moves[self._player] + [move]})[0]
+            if not res:
+                h += 1
+            elif res == self._player:
+                h += 10
+            else:
+                h -= 8
+        return h if self._player == Player.RED else -h
 
     def _minimax(self) -> float:
-        if winner(self._player_moves) is not None or self._depth == self._max_depth:
-            return self._evaluate()
+        if winner(self._player_moves)[0] is not None or self._depth == self._max_depth:
+            self._value = self._evaluate()
+            return self._value
         self._value = -math.inf if self._type == MinimaxType.MAX else math.inf
         for move in deepcopy(self._available_moves):
             self._available_moves.remove(move)
@@ -153,14 +163,14 @@ class MinimaxNode:
 
             if self._type == MinimaxType.MAX:
                 if child._minimax() >= self._value:
-                    self._value = child._minimax()
+                    self._value = child._value
                     self._move = move
                 if self._prune and self._value >= self._beta:
                     break
                 self._alpha = max(self._alpha, self._value)
             else:
                 if child._minimax() <= self._value:
-                    self._value = child._minimax()
+                    self._value = child._value
                     self._move = move
                 if self._prune and self._value <= self._alpha:
                     break
@@ -210,7 +220,7 @@ class Sim:
     def _enemy_move(self) -> Line:
         return random.choice(self._available_moves)
 
-    def _game_over(self) -> Union[Player, None]:
+    def _game_over(self) -> tuple[Union[Player, None], Union[tuple[Line, Line, Line], None]]:
         return winner(self._player_moves)
 
     def play(self) -> Player:
@@ -229,21 +239,45 @@ class Sim:
                 self._gui.draw(self._player_moves)
                 sleep(SLEEP_TIME)
             res = self._game_over()
-            if res:
-                return res
+            if res[0]:
+                if self._gui:
+                    self._gui.show_triangle(res[1]) # type: ignore
+                    sleep(SLEEP_TIME)
+                return res[0]
 
+    def close(self) -> None:
+        if self._gui:
+            self._gui.close()
+
+
+def calcWinChanceAndTime(depth: int, prune: bool, test_count: int) -> None:
+    game = Sim(minimax_depth=depth, prune=prune, gui=False)
+    start = timer()
+    result = {p: 0 for p in Player}
+    for _ in range(test_count):
+        res = game.play()
+        result[res] += 1
+    end = timer()
+    print(result)
+    print(f"Depth: {depth}, Prune: {prune}")
+    print(f"Time: {(end - start) / test_count:.4f}s")
+    print(f"Win chance: {result[Player.RED] * 100 // test_count}%")
+    print()
 
 def main():
-    game = Sim(minimax_depth=int(argv[1]), prune=True, gui=bool(int(argv[2])))
-
-    results = {p: 0 for p in Player}
-    for i in range(200):
-        print(f"Game {i + 1}:")
-        winner = game.play()
-        results[winner] += 1
-        print(f"Winner: {winner}")
-
-    print(results)
+    # game = Sim(minimax_depth=int(argv[1]), prune=True, gui=bool(int(argv[2])))
+    # res = game.play()
+    # print("Winner: ", res)
+    # game.close()
+    # calcWinChanceAndTime(1, False, 100)
+    # calcWinChanceAndTime(3, False, 100)
+    # calcWinChanceAndTime(5, False, 10)
+    # calcWinChanceAndTime(1, True, 100)
+    # calcWinChanceAndTime(3, True, 100)
+    # calcWinChanceAndTime(4, True, 100)
+    calcWinChanceAndTime(5, True, 50)
+    # calcWinChanceAndTime(7, True, 50)
+    # calcWinChanceAndTime(15, True, 5)
 
 
 if __name__ == "__main__":
