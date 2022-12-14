@@ -160,17 +160,18 @@ class MinimaxNode:
             self._player_moves[self._player].append(move)
             child = MinimaxNode(self)
             self._children.append(child)
+            val = child._minimax()
 
             if self._type == MinimaxType.MAX:
-                if child._minimax() >= self._value:
-                    self._value = child._value
+                if val >= self._value:
+                    self._value = val
                     self._move = move
                 if self._prune and self._value >= self._beta:
                     break
                 self._alpha = max(self._alpha, self._value)
             else:
-                if child._minimax() <= self._value:
-                    self._value = child._value
+                if val <= self._value:
+                    self._value = val
                     self._move = move
                 if self._prune and self._value <= self._alpha:
                     break
@@ -265,19 +266,19 @@ def calcWinChanceAndTime(depth: int, prune: bool, test_count: int) -> None:
     print()
 
 def main():
-    # game = Sim(minimax_depth=int(argv[1]), prune=True, gui=bool(int(argv[2])))
-    # res = game.play()
-    # print("Winner: ", res)
-    # game.close()
-    # calcWinChanceAndTime(1, False, 100)
-    # calcWinChanceAndTime(3, False, 100)
-    # calcWinChanceAndTime(5, False, 10)
-    # calcWinChanceAndTime(1, True, 100)
-    # calcWinChanceAndTime(3, True, 100)
-    # calcWinChanceAndTime(4, True, 100)
-    calcWinChanceAndTime(5, True, 50)
-    # calcWinChanceAndTime(7, True, 50)
-    # calcWinChanceAndTime(15, True, 5)
+    game = Sim(minimax_depth=int(argv[1]), prune=False, gui=bool(int(argv[2])))
+    res = game.play()
+    print("Winner: ", res)
+    game.close()
+    calcWinChanceAndTime(1, False, 100)
+    calcWinChanceAndTime(3, False, 100)
+    calcWinChanceAndTime(5, False, 10)
+    calcWinChanceAndTime(1, True, 100)
+    calcWinChanceAndTime(3, True, 100)
+    calcWinChanceAndTime(4, True, 100)
+    calcWinChanceAndTime(5, True, 5)
+    calcWinChanceAndTime(7, True, 50)
+    calcWinChanceAndTime(15, True, 5)
 
 
 if __name__ == "__main__":
