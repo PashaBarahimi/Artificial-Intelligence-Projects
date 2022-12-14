@@ -2,11 +2,11 @@ import random
 from dataclasses import dataclass
 from timeit import default_timer as timer
 
-CROSSOVER_PROBABILITY = 0.7
+CROSSOVER_PROBABILITY = 0.8
 MUTATION_PROBABILITY = 0.05
 CARRY_PERCENTAGE = 0.2
 POPULATION_SIZE = 100
-MAXIMUM_GENERATION_COUNT = 5000
+MULTI_START_COUNT = 10
 
 OPERATOR_PRECEDENCE = {
     '+': 1,
@@ -52,32 +52,34 @@ class EquationBuilder:
             population.append(chromosome)
         return population
 
-    def findEquation(self) -> list | None:
-        self.population = self.makeFirstPopulation()
-        generationCount = 0
-        while generationCount < self.maxGenCount:
-            random.shuffle(self.population)
+    def findEquation(self, multiStartCount: int = 1) -> tuple[list, bool]:
+        bestSolution = None
+        for _ in range(multiStartCount):
+            self.population = self.makeFirstPopulation()
+            for _ in range(self.maxGenCount):
+                random.shuffle(self.population)
 
-            fitnesses = [self.calcFitness(self.population[i]) for i in range(POPULATION_SIZE)]
-            if max(fitnesses) == 1:
-                return self.population[fitnesses.index(1)]
+                fitnesses = [self.calcFitness(self.population[i]) for i in range(POPULATION_SIZE)]
+                if max(fitnesses) == 1:
+                    return self.population[fitnesses.index(1)], True
 
-            bestChromosomes = [x for _, x in sorted(zip(fitnesses, self.population), key=lambda pair: pair[0], reverse=True)]
-            carriedChromosomes = []
-            for i in range(0, int(POPULATION_SIZE * CARRY_PERCENTAGE)):
-                carriedChromosomes.append(bestChromosomes[i])
+                bestChromosomes = [x for _, x in sorted(zip(fitnesses, self.population), key=lambda pair: pair[0], reverse=True)]
+                if bestSolution is None or self.calcFitness(bestSolution) < self.calcFitness(bestChromosomes[0]):
+                    bestSolution = bestChromosomes[0]
+                carriedChromosomes = []
+                for i in range(0, int(POPULATION_SIZE * CARRY_PERCENTAGE)):
+                    carriedChromosomes.append(bestChromosomes[i])
 
-            matingPool = self.createMatingPool(bestChromosomes)
-            crossoverPool = self.createCrossoverPool(matingPool)
-            self.population.clear()
+                matingPool = self.createMatingPool(bestChromosomes)
+                crossoverPool = self.createCrossoverPool(matingPool)
+                self.population.clear()
 
-            for i in range(POPULATION_SIZE - int(POPULATION_SIZE * CARRY_PERCENTAGE)):
-                self.population.append(self.mutate(crossoverPool[i]))
+                for i in range(POPULATION_SIZE - int(POPULATION_SIZE * CARRY_PERCENTAGE)):
+                    self.population.append(self.mutate(crossoverPool[i]))
 
-            self.population.extend(carriedChromosomes)
-            generationCount += 1
+                self.population.extend(carriedChromosomes)
 
-        return None
+        return bestSolution, False # type: ignore
 
     def createMatingPool(self, bestChromosomes: list[list]) -> list[list]:
         ranks = list(reversed(range(1, POPULATION_SIZE + 1)))
@@ -142,12 +144,11 @@ def main():
     equationLength = 21
     goalNumber = 18019
 
-    equationBuilder = EquationBuilder(operators, operands, equationLength, goalNumber, MAXIMUM_GENERATION_COUNT)
-    equation = equationBuilder.findEquation()
-    if equation is None:
-        print("No equation found!")
-    else:
-        print(*equation, "=", eval("".join(map(str, equation))))
+    equationBuilder = EquationBuilder(operators, operands, equationLength, goalNumber, equationLength * POPULATION_SIZE * 2)
+    equation, isFound = equationBuilder.findEquation(MULTI_START_COUNT)
+    if not isFound:
+        print("No equation found! Best solution:")
+    print(*equation, "=", eval("".join(map(str, equation))))
     print(f"Average Build Time: {getBuildTime(equationBuilder, 10):.4f}s")
 
 
