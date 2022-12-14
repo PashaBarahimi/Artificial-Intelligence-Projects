@@ -144,10 +144,8 @@ class MinimaxNode:
             res = winner({self._player: self._player_moves[self._player] + [move]})[0]
             if not res:
                 h += 1
-            elif res == self._player:
-                h += 10
             else:
-                h -= 8
+                h -= 10
         return h if self._player == Player.RED else -h
 
     def _minimax(self) -> float:
@@ -273,12 +271,11 @@ def main():
     calcWinChanceAndTime(1, False, 100)
     calcWinChanceAndTime(3, False, 100)
     calcWinChanceAndTime(5, False, 10)
+
     calcWinChanceAndTime(1, True, 100)
     calcWinChanceAndTime(3, True, 100)
-    calcWinChanceAndTime(4, True, 100)
     calcWinChanceAndTime(5, True, 5)
     calcWinChanceAndTime(7, True, 50)
-    calcWinChanceAndTime(15, True, 5)
 
 
 if __name__ == "__main__":
