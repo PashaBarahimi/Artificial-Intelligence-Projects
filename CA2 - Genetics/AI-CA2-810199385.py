@@ -6,6 +6,7 @@ CROSSOVER_PROBABILITY = 0.7
 MUTATION_PROBABILITY = 0.05
 CARRY_PERCENTAGE = 0.2
 POPULATION_SIZE = 100
+MAXIMUM_GENERATION_COUNT = 5000
 
 OPERATOR_PRECEDENCE = {
     '+': 1,
@@ -30,13 +31,12 @@ class EquationBuilder:
     goalNumber: int
     population: list[list]
 
-    def __init__(self, operators: list[str], operands: list[int], equationLength: int, goalNumber: int):
+    def __init__(self, operators: list[str], operands: list[int], equationLength: int, goalNumber: int, maxGenCount: int):
         self.operators = operators
         self.operands = operands
         self.equationLength = equationLength
         self.goalNumber = goalNumber
-
-        self.population = self.makeFirstPopulation()
+        self.maxGenCount = maxGenCount
 
     def makeFirstPopulation(self) -> list[list]:
         operandCount = int(self.equationLength / 2) + 1
@@ -48,19 +48,21 @@ class EquationBuilder:
             for j in range(operandCount):
                 chromosome[j * 2] = random.choice(self.operands)
             for j in range(operatorCount):
-                chromosome[j * 2 + 1] = random.choice(self.operators) # type: ignore
+                chromosome[j * 2 + 1] = random.choice(self.operators)  # type: ignore
             population.append(chromosome)
         return population
 
-    def findEquation(self) -> list:
-        while (True):
+    def findEquation(self) -> list | None:
+        self.population = self.makeFirstPopulation()
+        generationCount = 0
+        while generationCount < self.maxGenCount:
             random.shuffle(self.population)
 
             fitnesses = [self.calcFitness(self.population[i]) for i in range(POPULATION_SIZE)]
-            if min(fitnesses) == 0:
-                return self.population[fitnesses.index(0)]
+            if max(fitnesses) == 1:
+                return self.population[fitnesses.index(1)]
 
-            bestChromosomes = [x for _, x in sorted(zip(fitnesses, self.population), key=lambda pair: pair[0])]
+            bestChromosomes = [x for _, x in sorted(zip(fitnesses, self.population), key=lambda pair: pair[0], reverse=True)]
             carriedChromosomes = []
             for i in range(0, int(POPULATION_SIZE * CARRY_PERCENTAGE)):
                 carriedChromosomes.append(bestChromosomes[i])
@@ -73,6 +75,9 @@ class EquationBuilder:
                 self.population.append(self.mutate(crossoverPool[i]))
 
             self.population.extend(carriedChromosomes)
+            generationCount += 1
+
+        return None
 
     def createMatingPool(self, bestChromosomes: list[list]) -> list[list]:
         ranks = list(reversed(range(1, POPULATION_SIZE + 1)))
@@ -117,8 +122,18 @@ class EquationBuilder:
                     chromosome[i] = random.choice(self.operands)
         return chromosome
 
-    def calcFitness(self, chromosome: list) -> int:
-        return abs(self.goalNumber - eval("".join(map(str, chromosome))))
+    def calcFitness(self, chromosome: list) -> float:
+        return 1 / (abs(self.goalNumber - eval("".join(map(str, chromosome)))) + 1)
+
+
+def getBuildTime(equationBuilder: EquationBuilder, testCount: int) -> float:
+    buildTimes = []
+    for _ in range(testCount):
+        start = timer()
+        equationBuilder.findEquation()
+        end = timer()
+        buildTimes.append(end - start)
+    return sum(buildTimes) / len(buildTimes)
 
 
 def main():
@@ -127,13 +142,13 @@ def main():
     equationLength = 21
     goalNumber = 18019
 
-    equationBuilder = EquationBuilder(
-        operators, operands, equationLength, goalNumber)
-    start = timer()
+    equationBuilder = EquationBuilder(operators, operands, equationLength, goalNumber, MAXIMUM_GENERATION_COUNT)
     equation = equationBuilder.findEquation()
-    end = timer()
-    print(*equation, "=", eval("".join(map(str, equation))))
-    print(f"Build Time: {(end - start):.4f}s")
+    if equation is None:
+        print("No equation found!")
+    else:
+        print(*equation, "=", eval("".join(map(str, equation))))
+    print(f"Average Build Time: {getBuildTime(equationBuilder, 10):.4f}s")
 
 
 if __name__ == "__main__":
