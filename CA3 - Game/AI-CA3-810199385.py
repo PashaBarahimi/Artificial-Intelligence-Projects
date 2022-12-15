@@ -106,7 +106,7 @@ class SimGui:
 class MinimaxNode:
     _type: MinimaxType
     _value: float
-    _children: list['MinimaxNode']
+    _children: dict[Line, 'MinimaxNode']
     _parent: Union['MinimaxNode', None]
     _move: Union[Line, None]
     _player: Player
@@ -122,7 +122,7 @@ class MinimaxNode:
                  player_moves: dict[Player, list[Line]] = {}, prune: bool = False, max_depth: int = 1):
         self._parent = parent
         self._move = None
-        self._children = []
+        self._children = {}
         self._value = 0
         self._type = MinimaxType.MAX if not parent else ~parent._type
         self._depth = 0 if not parent else parent._depth + 1
@@ -142,42 +142,52 @@ class MinimaxNode:
         h = 0
         for move in self._available_moves:
             res = winner({self._player: self._player_moves[self._player] + [move]})[0]
-            if not res:
-                h += 1
-            else:
-                h -= 10
+            if res:
+                h -= 1 # player is losing
+            res = winner({~self._player: self._player_moves[~self._player] + [move]})[0]
+            if res:
+                h += 1 # player is winning
         return h if self._player == Player.RED else -h
 
-    def _minimax(self) -> float:
+    def _minimax(self) -> tuple[float, int]:
         if winner(self._player_moves)[0] is not None or self._depth == self._max_depth:
             self._value = self._evaluate()
-            return self._value
+            return self._value, self._depth
         self._value = -math.inf if self._type == MinimaxType.MAX else math.inf
+        optimal_depth = 0
         for move in deepcopy(self._available_moves):
             self._available_moves.remove(move)
             self._player_moves[self._player].append(move)
             child = MinimaxNode(self)
-            self._children.append(child)
-            val = child._minimax()
+            self._children[move] = child
+            val, dep = child._minimax()
 
             if self._type == MinimaxType.MAX:
-                if val >= self._value:
+                if val > self._value:
                     self._value = val
                     self._move = move
-                if self._prune and self._value >= self._beta:
-                    break
+                    optimal_depth = dep
+                elif val == self._value and dep > optimal_depth:
+                    self._move = move
+                    optimal_depth = dep
                 self._alpha = max(self._alpha, self._value)
             else:
-                if val <= self._value:
+                if val < self._value:
                     self._value = val
                     self._move = move
-                if self._prune and self._value <= self._alpha:
-                    break
+                    optimal_depth = dep
+                elif val == self._value and dep > optimal_depth:
+                    self._move = move
+                    optimal_depth = dep
                 self._beta = min(self._beta, self._value)
+
+            if self._prune and self._alpha >= self._beta:
+                break
 
             self._player_moves[self._player].remove(move)
             self._available_moves.append(move)
-        return self._value
+
+        return self._value, optimal_depth
 
     def get_best_move(self) -> Line:
         self._minimax()
@@ -240,7 +250,7 @@ class Sim:
             res = self._game_over()
             if res[0]:
                 if self._gui:
-                    self._gui.show_triangle(res[1]) # type: ignore
+                    self._gui.show_triangle(res[1])  # type: ignore
                     sleep(SLEEP_TIME)
                 return res[0]
 
@@ -253,7 +263,8 @@ def calcWinChanceAndTime(depth: int, prune: bool, test_count: int) -> None:
     game = Sim(minimax_depth=depth, prune=prune, gui=False)
     start = timer()
     result = {p: 0 for p in Player}
-    for _ in range(test_count):
+    for i in range(test_count):
+        print(f"Processing Test {i + 1}/{test_count}", end="\r")
         res = game.play()
         result[res] += 1
     end = timer()
@@ -263,19 +274,21 @@ def calcWinChanceAndTime(depth: int, prune: bool, test_count: int) -> None:
     print(f"Win chance: {result[Player.RED] * 100 // test_count}%")
     print()
 
+
 def main():
-    game = Sim(minimax_depth=int(argv[1]), prune=False, gui=bool(int(argv[2])))
+    game = Sim(minimax_depth=int(argv[1]), prune=True, gui=bool(int(argv[2])))
     res = game.play()
     print("Winner: ", res)
     game.close()
-    calcWinChanceAndTime(1, False, 100)
-    calcWinChanceAndTime(3, False, 100)
-    calcWinChanceAndTime(5, False, 10)
 
-    calcWinChanceAndTime(1, True, 100)
-    calcWinChanceAndTime(3, True, 100)
-    calcWinChanceAndTime(5, True, 5)
-    calcWinChanceAndTime(7, True, 50)
+    # calcWinChanceAndTime(1, False, 100)
+    # calcWinChanceAndTime(3, False, 100)
+    # calcWinChanceAndTime(5, False, 50)
+
+    # calcWinChanceAndTime(1, True, 100)
+    # calcWinChanceAndTime(3, True, 100)
+    # calcWinChanceAndTime(5, True, 100)
+    # calcWinChanceAndTime(7, True, 100)
 
 
 if __name__ == "__main__":
