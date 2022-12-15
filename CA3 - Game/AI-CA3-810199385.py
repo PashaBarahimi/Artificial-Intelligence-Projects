@@ -49,6 +49,7 @@ class SimGui:
         self._screen = turtle.Screen()
         self._screen.setup(width, height)
         self._screen.title(title)
+        self._screen.bgcolor(0.117, 0.117, 0.117)
         self._screen.setworldcoordinates(-1.5, -1.5, 1.5, 1.5)
         self._screen.tracer(0, 0)
         turtle.hideturtle()
@@ -68,7 +69,7 @@ class SimGui:
         turtle.color(color)
         turtle.dot(15)
 
-    def _draw_line(self, p1: Dot, p2: Dot, color: str, pensize: int = 5) -> None:
+    def _draw_line(self, p1: Dot, p2: Dot, color: str, pensize: int = 6) -> None:
         turtle.up()
         turtle.pensize(pensize)
         turtle.goto(p1)
