@@ -15087,14 +15087,16 @@ hazm
 «کتاب»
 با کلمه
 «کتاب ها»
-فرقی در شناسایی موضوع ایجاد نمی‌کند.<br/>
+فرقی در شناسایی موضوع ایجاد نمی‌کند. البته این مورد با وجود سریع بودن، معمولا دقیق عمل نمی‌کند و ممکن است بخشی از کلمه را حذف کند به طوری که معنی کلمه کاملا تغییر کند.<br/><br/>
 روش 
 lemmatization
 برای تبدیل افعال به بن مضارع/ماضی آن‌ها استفاده می‌شود. برای مثال کلمه
 «می روم»
 را به
 «رفت#رو»
-تبدیل می‌کند تا شخص افعال تفاوتی در موضوع ایجاد نکند.
+تبدیل می‌کند تا شخص افعال تفاوتی در موضوع ایجاد نکند. این مورد نسبت به 
+stemming
+بسیار دقیق‌تر اما کندتر است.
 </div>
 
 </div>
@@ -15973,15 +15975,28 @@ Precision
 Precision
 و
 Recall
-باید به صورت متناظر با هم ارزیابی شوند و به تنهایی برای ارزیابی مناسب نیستند.<br/><br/><br/>
-<p>8-
+باید به صورت متناظر با هم ارزیابی شوند و به تنهایی برای ارزیابی مناسب نیستند.<br/>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div dir='rtl'>
+8-
 معیار
 F1-Score
 میانگین هارمونیکی از معیارهای
 Precision
 و
 Recall
-است. این معیار به صورت زیر محاسبه می‌شود:</p>
+است. این معیار به صورت زیر محاسبه می‌شود:
 </div>
 
 </div>
@@ -16009,8 +16024,21 @@ $$F1-Score=\dfrac{2\times Precision\times Recall}{Precision+Recall}$$
 میانگین هارمونیکی نسبت به میانگین عادی در این مسئله بهتر عمل می‌کند. دلیل این مورد این است که اگر مقدار یکی از معیارها برابر با 0 و مقدار دیگری برابر با 1 باشد، مقدار میانگین عادی برابر با 0.5 خواهد بود در صورتی که مقدار میانگین هارمونیکی برابر با 0 خواهد بود. در واقع این میانگین نسبت به مقادیر بسیار کوچک، حساسیت بیشتری از خود نشان می‌دهد.<br/>
 دلیل استفاده از این معیار این است که ما می‌خواهیم هر دو معیار را بالا (و تا جای ممکن نزدیک به هم) نگه داریم که بالا بودن 
 F1-Score
-این مورد را تضمین می‌کند.<br/><br/><br/>
-<p>9-
+این مورد را تضمین می‌کند.
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<div dir='rtl'>
+9-
 معیار
 Macro-Avg
 صرفا میانگین معیارهای
@@ -16037,7 +16065,7 @@ Micro-Avg
 Micro-Precision
 و
 Micro-Recall
-به صورت زیر محاسبه می‌شوند:</p>
+به صورت زیر محاسبه می‌شوند:
 </div>
 
 </div>
