@@ -14597,10 +14597,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h1>پروژه چهارم</h1>
-</div>
-
+<h1 id="Computer-Assignment-4-(Naive-Bayes)">Computer Assignment 4 (Naive Bayes)<a class="anchor-link" href="#Computer-Assignment-4-(Naive-Bayes)">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -14868,10 +14865,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>فاز اول: پیش‌پردازش داده</h2>
-</div>
-
+<h2 id="Phase-1:-Data-Preprocessing">Phase 1: Data Preprocessing<a class="anchor-link" href="#Phase-1:-Data-Preprocessing">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -15075,29 +15069,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-1- 
-عمل stemming برای حذف بخش‌های اضافی از کلمات به کار می‌رود برای مثال می‌توانیم به کمک انجام این کار، کلمه 
-«کتاب ها»
-را به 
-«کتاب»
-تبدیل کنیم. در اینجا از کتابخانه
-hazm
-استفاده می‌شود. دلیل استفاده از این روش این است که کلمه 
-«کتاب»
-با کلمه
-«کتاب ها»
-فرقی در شناسایی موضوع ایجاد نمی‌کند. البته این مورد با وجود سریع بودن، معمولا دقیق عمل نمی‌کند و ممکن است بخشی از کلمه را حذف کند به طوری که معنی کلمه کاملا تغییر کند.<br/><br/>
-روش 
-lemmatization
-برای تبدیل افعال به بن مضارع/ماضی آن‌ها استفاده می‌شود. برای مثال کلمه
-«می روم»
-را به
-«رفت#رو»
-تبدیل می‌کند تا شخص افعال تفاوتی در موضوع ایجاد نکند. این مورد نسبت به 
-stemming
-بسیار دقیق‌تر اما کندتر است.
-</div>
+<h4 id="1.1-Stemmization-and-Lemmatization">1.1 Stemmization and Lemmatization<a class="anchor-link" href="#1.1-Stemmization-and-Lemmatization">&#182;</a></h4><p>Stemming is used to reduce inflected (or sometimes derived) words to their word stem, base or root form—generally a written word form. For example, the words &quot;play&quot;, &quot;player&quot;, &quot;played&quot;, &quot;plays&quot;, &quot;playing&quot; and &quot;pleiades&quot; all have the stem &quot;play&quot;.</p>
+<p>Lemmatization is the process of grouping together the inflected forms of a word so they can be analyzed as a single item, identified by the word's lemma, or dictionary form. For example, &quot;was&quot; and &quot;were&quot; are both lemmas of the verb &quot;be&quot;.</p>
 
 </div>
 </div>
@@ -15109,10 +15082,7 @@ stemming
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>فاز دوم: فرآیند مسئله</h2>
-</div>
-
+<h2 id="Phase-2:-Naive-Bayes-Classifier">Phase 2: Naive Bayes Classifier<a class="anchor-link" href="#Phase-2:-Naive-Bayes-Classifier">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -15123,9 +15093,7 @@ stemming
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-در ابتدا به توضیح بیز می‌پردازیم:
-</div>
+<h4 id="2.1-Evidence,-Likelihood,-Prior-and-Posterior">2.1 Evidence, Likelihood, Prior and Posterior<a class="anchor-link" href="#2.1-Evidence,-Likelihood,-Prior-and-Posterior">&#182;</a></h4><p>At first, let's take a look at Bayes' Theorem:</p>
 
 </div>
 </div>
@@ -15148,46 +15116,16 @@ $$P(c|x)=\dfrac{P(x|c)P(c)}{P(x)}$$$$P(c|X)=P(x_1|c)\times P(x_2|c)\times ...\ti
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-x
-را یک کلمه در نظر می‌گیریم و 
-c
-را یک کلاس در نظر می‌گیریم که در این قسمت کلاس‌ها در واقع موضوعات خبرها هستند. در نهایت می‌خواهیم به کمک قانون بیز، احتمال هر موضوع را با توجه به کلمه انتخابی پیدا کنیم و پس از محاسبه این احتمال برای تمام کلمات موجود در یک خبر، موضوع این خبر را پیدا کنیم.<br/><br/>
-P(x)
-یا 
-Predictor Prior Probability
-در واقع احتمال حضور یک کلمه در خبرها بدون توجه به موضوع آن‌ها است. این احتمال را می‌توانیم از نسبت تعداد دفعاتی که کلمه x
-در کل خبرها به کار رفته به تعداد کل کلمات اخبار محاسبه کنیم.<br/>
-P(c)
-یا 
-Class Prior Probability
-احتمال اختصاص یک خبر به موضوع c
-است. در این بخش می‌توانیم این احتمال را از نسبت تعداد خبرهای موضوع c
-به تعداد کل خبرها محاسبه کنیم.<br/>
-P(x|c)
-یا
-Likelihood
-در واقع احتمال حضور کلمه x
-در خبر با موضوع c
-است که این احتمال را از تقسیم تعداد دفعاتی که x
-در خبرهای با موضوع c
-به کار رفته به تعداد کل کلمات اخبار گروه c
-محاسبه می‌کنیم.<br/>
-P(c|x)
-یا
-Posterior Probability
-در واقع احتمال اختصاص خبر به موضوع c
-است به شرطی که بدانیم کلمه x
-در آن وجود دارد.<br/><br/>
-به صورت کلی می‌توان گفت ما در ابتدا یک 
-Prior Probability
-داریم و به ازای مشاهده یک
-Evidence
-که در این قسمت کلمه x
-است، می‌توانیم یک احتمال قوی‌تر یا
-Posterior Probability
-را محاسبه کنیم.
-</div>
+<p><code>x</code> is a word and <code>c</code> is considered as a class, which is a news category. The goal is to find the class that has the highest probability of a given word. This can be done using the Bayes' Theorem.</p>
+<p><code>P(x)</code> or (Predictor Prior Probability) is the probability of a word in the whole dataset. It can be calculated by the following formula:</p>
+$$P(x)=\dfrac{N_x}{N}$$<p>where $N_x$ is the number of times a word appears in the whole dataset and $N$ is the total number of words in the whole dataset.</p>
+<p><code>P(c)</code> or (Class Prior Probability) is the probability of a class in the whole dataset. It can be calculated by the following formula:</p>
+$$P(c)=\dfrac{N_c}{N}$$<p>where $N_c$ is the number of times a class appears in the whole dataset and $N$ is the total number of classes in the whole dataset.</p>
+<p><code>P(x|c)</code> or (Likelihood) is the probability of a word given a class. It can be calculated by the following formula:</p>
+$$P(x|c)=\dfrac{N_{xc}}{N_c}$$<p>where $N_{xc}$ is the number of times a word appears in a class and $N_c$ is the total number of words in a class.</p>
+<p><code>P(c|x)</code> or (Posterior Probability) is the probability of a class given a word. It can be calculated by the following formula:</p>
+$$P(c|x)=\dfrac{P(x|c)P(c)}{P(x)}$$<p>where $P(x|c)$ is the likelihood, $P(c)$ is the class prior probability and $P(x)$ is the predictor prior probability.</p>
+<p>In other words, we use the evidence (the word) to calculate the posterior (the probability of a class given a word).</p>
 
 </div>
 </div>
@@ -15239,9 +15177,7 @@ Posterior Probability
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-به دلیل اینکه ضرب تعدادی احتمال کوچک می‌تواند باعث شود عدد نهایی تقریبا صفر شود، از لگاریتم در این بخش استفاده کردم و به جای ضرب احتمال‌ها در همدیگر، لگاریتم آن‌ها را جمع می‌کنیم.
-</div>
+<p>As the multiplication of a lot of small probabilities will result in a very small number, we can use the log of the probabilities to avoid this problem.</p>
 
 </div>
 </div>
@@ -15452,14 +15388,7 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-همانطور که مشاهده می‌شود، کلمه «گوش» که در فناوری به تعداد زیادی به کار رفته است، احتمالا کلمه «گوشی» بوده و به دلیل استفاده از
-Lemmatization
-به این کلمه تبدیل شده است.<br/>
-از طرفی، کلمه ایران در چند موضوع پر استفاده است و به همین دلیل نمی‌تواند کمک زیادی به ما بکند.<br/>
-کلمه اسلام نیز به دلیل استفاده زیاد در «جمهوری اسلامی» ممکن است باعث اشتباه شود.<br/><br/>
-در نتیجه هر 3 کلمه را از خبرها حذف کردم تا در بررسی احتمالات تاثیر منفی نگذارند.
-</div>
+<p>The word &quot;گوش&quot; (ear) which is common word in the news category &quot;فناوری&quot; (technology), was probably the word &quot;گوشی&quot; (phone) which was changed during the preprocessing phase. Also, the word &quot;ایران&quot; (Iran) is a common word in multiple categories. The word &quot;اسلام&quot; may also be a common word as it is used in &quot;جمهوری اسلامی&quot; (Islamic Republic). As a result, all these words are added to the stop words list to improve the accuracy of the classifier.</p>
 
 </div>
 </div>
@@ -15726,19 +15655,12 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h3>Bigrams</h3>
-به دو جمله زیر دقت کنید:<br/>
-- گربه شیر را خورد.<br/>
-- شیر گربه را خورد.<br/><br/>
-معنی این دو جمله کاملا متفاوت است. در جمله اول شیر به معنی «شیر خوراکی» و در جمله دوم به معنی «یک حیوان» است.<br/>
-کلمات این دو جمله کاملا مشابه هم هستند و در 
-Unigram
-در کلاس یکسانی قرار می‌گیرند اما اگر کلمات را به صورت
-Bigram
-در نظر بگیریم، به کمک کلمه «را» در «شیر را» و «گربه را» می‌توانیم مفعول را تشخیص دهیم و با توجه به این مورد، معنی واقعی «شیر» 
-را متوجه شویم و در این صورت ممکن است این دو جمله در کلاس‌های متفاوت قرار بگیرند.
-</div>
+<h3 id="Bigrams">Bigrams<a class="anchor-link" href="#Bigrams">&#182;</a></h3><h4 id="2.2-Two-Sentences-with-the-Same-Words-but-Different-Meanings">2.2 Two Sentences with the Same Words but Different Meanings<a class="anchor-link" href="#2.2-Two-Sentences-with-the-Same-Words-but-Different-Meanings">&#182;</a></h4><p>Look at the following sentences:</p>
+<ol>
+<li>&quot;گربه شیر را خورد&quot; (The cat ate the milk)</li>
+<li>&quot;شیر گربه را خورد&quot; (The lion ate the cat)</li>
+</ol>
+<p>In both sentences, the word &quot;شیر&quot; is used, but with different meanings. In the first sentence, &quot;شیر&quot; means &quot;milk&quot;, but in the second sentence, &quot;شیر&quot; means &quot;lion&quot;. The meaning of a word depends on the words that come before and after it. This is called the context of a word. <code>Bigrams</code> are pairs of words that appear consecutively in a text. This can be used to improve the accuracy of the classifier.</p>
 
 </div>
 </div>
@@ -15869,56 +15791,11 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h3>Additive Smoothing</h3>
-4-
-می‌دانیم احتمال نهایی (احتمال مطابقت هر کلاس به شرط کل کلمات خبر)، از ضرب احتمال هر کلمه به شرط کلاس محاسبه می‌شود. اگر یکی از کلمات خبر در کلاسی وجود نداشته باشد، احتمال نهایی صفر خواهد شد و اگر کلمه‌ای فقط در یک کلاس وجود داشته باشد، احتمال مطابقت تمام کلاس‌ها با این کلمه صفر می‌شود و فقط کلاسی که شامل این کلمه است، احتمالی بزرگ‌تر از صفر خواهد داشت و در نتیجه به صورت قطعی فقط این کلاس انتخاب می‌شود. در واقع عدم حضور یک کلمه خبر در کلاس صحیح، باعث می‌شود تمامی کلمات دیگر آن خبر شانس خود را از دست بدهند. برای مثال به فرمول زیر دقت کنید:
-</div>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-$$P(c|X)=P(x_1|c)\times P(x_2|c)\times ...\times P(x_n|c)\times P(c)$$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-فرض کنیم c
-کلاس صحیح خبر X
-باشد. اگر کلمه
-x<sub>i</sub>
-در کلاس c
-نباشد، احتمال کلمات دیگر هیچ تاثیری نخواهند داشت و احتمال نهایی برابر با صفر خواهد شد.<br/><br/>
-5-
-برای حل این مشکل از تکنیک
-Additive Smoothing
-استفاده می‌شود. این تکنیک با افزودن یک مقدار ثابت به تعداد کلمات در کلاس، مشکل احتمال صفر را حل می‌کند. در واقع در این صورت احتمال نهایی همواره بزرک‌تر از صفر خواهد بود و بقیه کلمات خبر نیز می‌توانند شانس خود را حفظ کنند. این تکنیک به صورت زیر اعمال می‌شود:
-</div>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Additive-Smoothing">Additive Smoothing<a class="anchor-link" href="#Additive-Smoothing">&#182;</a></h3><h4 id="2.3-Why-a-Non-Existing-Word-is-Considered-as-a-Zero-Probability">2.3 Why a Non-Existing Word is Considered as a Zero Probability<a class="anchor-link" href="#2.3-Why-a-Non-Existing-Word-is-Considered-as-a-Zero-Probability">&#182;</a></h4><p>In the previous section, we used the following formula to calculate the likelihood:</p>
+$$P(x|c)=\dfrac{N_{xc}}{N_c}$$<p>where $N_{xc}$ is the number of times a word appears in a class and $N_c$ is the total number of words in a class.</p>
+<p>If a word does not exist in a class, the likelihood will be zero. This means that the probability of a class given a word will be zero. This results in not choosing the correct class if the word does not exist in the training dataset.</p>
+$$P(c|X)=P(x_1|c)\times P(x_2|c)\times ...\times P(x_n|c)\times P(c)$$<p>If a word does not exist in a class, the likelihood will be zero.</p>
+<h4 id="2.4-What-is-Additive-Smoothing?">2.4 What is Additive Smoothing?<a class="anchor-link" href="#2.4-What-is-Additive-Smoothing?">&#182;</a></h4><p>Additive smoothing is a method to avoid the problem of zero probability. It is used to add a small number to the numerator and denominator of the likelihood formula. This will result in a small probability instead of zero. It can be done by the following formula:</p>
 $$P(x_i|c)=\dfrac{WordCount[c][x_i]+\alpha}{TotalWordCount[c]+\alpha\times UniqueWordCount[c]}&gt; 0$$
 </div>
 </div>
@@ -15930,11 +15807,7 @@ $$P(x_i|c)=\dfrac{WordCount[c][x_i]+\alpha}{TotalWordCount[c]+\alpha\times Uniqu
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h3>بررسی صحت</h3>
-6-
-این مورد در بخش‌های قبلی رسم شده است.
-</div>
+<h3 id="Validation">Validation<a class="anchor-link" href="#Validation">&#182;</a></h3><h4 id="2.5-Bar-Plot-of-the-Most-Common-Words-in-Each-Category">2.5 Bar Plot of the Most Common Words in Each Category<a class="anchor-link" href="#2.5-Bar-Plot-of-the-Most-Common-Words-in-Each-Category">&#182;</a></h4><p>This is done in the previous sections.</p>
 
 </div>
 </div>
@@ -15946,37 +15819,61 @@ $$P(x_i|c)=\dfrac{WordCount[c][x_i]+\alpha}{TotalWordCount[c]+\alpha\times Uniqu
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>فاز سوم: ارزیابی</h2>
-7-
-دو حالت زیر را برای یک کلاس خاص در نظر بگیرید:<br/>
-- هیچ خبری را با این کلاس مطابقت ندهیم.<br/>
-- تمام خبرها را با این کلاس مطابقت دهیم.<br/><br/>
-در حالت اول، برای محاسبه 
-Precision
-به عبارت
-<sup>0</sup>&frasl;<sub>0</sub>
-می‌رسیم که با رفع ابهام به مقدار 1 (یعنی 100 درصد) می‌رسد. در صورتی که مقدار
-Recall
-در همین حالت برابر با 0 (یعنی 0 درصد) خواهد بود.<br/><br/>
-در حالت دوم، برای محاسبه
-Recall
-به عبارت
-<sup>n</sup>&frasl;<sub>n</sub>
-می‌رسیم که n
-تعداد خبرهای موجود در کلاس است. در این صورت مقدار 
-Recall
-برابر با 1 (یعنی 100 درصد) خواهد بود و در صورتی که مقدار
-n
-نسبت به تعداد کل خبرها بسیار کوچک باشد، مقدار
-Precision
-به 0 (یعنی 0 درصد) میل می‌کند.<br/><br/>
-واضح است که هیچ کدام از این دو حالت مطلوب نیست در صورتی که در هر کدام از آن‌ها، یکی از معیارها برابر با 100 درصد است. با توجه به این مثال می‌توان نتیجه گرفت که معیارهای
-Precision
-و
-Recall
-باید به صورت متناظر با هم ارزیابی شوند و به تنهایی برای ارزیابی مناسب نیستند.<br/>
+<h2 id="Phase-3:-Evaluation">Phase 3: Evaluation<a class="anchor-link" href="#Phase-3:-Evaluation">&#182;</a></h2>
 </div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="3.1-Why-Recall-and-Precision-are-not-Enough-by-Themselves">3.1 Why Recall and Precision are not Enough by Themselves<a class="anchor-link" href="#3.1-Why-Recall-and-Precision-are-not-Enough-by-Themselves">&#182;</a></h4><p>Consider the following confusion matrix where <code>Recall</code> is 100% and <code>Precision</code> is 50%:</p>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center"></th>
+  <th style="text-align:center">Predicted Positive</th>
+  <th style="text-align:center">Predicted Negative</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">Actual Positive</td>
+  <td style="text-align:center">10</td>
+  <td style="text-align:center">0</td>
+</tr>
+<tr>
+  <td style="text-align:center">Actual Negative</td>
+  <td style="text-align:center">10</td>
+  <td style="text-align:center">0</td>
+</tr>
+</tbody>
+</table>
+<p>Also, consider the following confusion matrix where <code>Recall</code> is 50% and <code>Precision</code> is 100%:</p>
+<table>
+<thead>
+<tr>
+  <th style="text-align:center"></th>
+  <th style="text-align:center">Predicted Positive</th>
+  <th style="text-align:center">Predicted Negative</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td style="text-align:center">Actual Positive</td>
+  <td style="text-align:center">10</td>
+  <td style="text-align:center">10</td>
+</tr>
+<tr>
+  <td style="text-align:center">Actual Negative</td>
+  <td style="text-align:center">0</td>
+  <td style="text-align:center">0</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 </div>
@@ -15988,16 +15885,8 @@ Recall
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-8-
-معیار
-F1-Score
-میانگین هارمونیکی از معیارهای
-Precision
-و
-Recall
-است. این معیار به صورت زیر محاسبه می‌شود:
-</div>
+<h4 id="3.2-What-is-F1-Score?">3.2 What is F1 Score?<a class="anchor-link" href="#3.2-What-is-F1-Score?">&#182;</a></h4><p><code>F1 Score</code> is the harmonic mean of <code>Recall</code> and <code>Precision</code>. It is used to measure the accuracy of a classifier. It can be calculated by the following formula:</p>
+$$F1=\dfrac{2\times Precision\times Recall}{Precision+Recall}$$<p>The harmonic mean can be better than the arithmetic mean in some cases as it gives more weight to low values. As a result, if we try to maximize the <code>F1 Score</code>, the model will be more accurate.</p>
 
 </div>
 </div>
@@ -16009,123 +15898,14 @@ Recall
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-$$F1-Score=\dfrac{2\times Precision\times Recall}{Precision+Recall}$$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-میانگین هارمونیکی نسبت به میانگین عادی در این مسئله بهتر عمل می‌کند. دلیل این مورد این است که اگر مقدار یکی از معیارها برابر با 0 و مقدار دیگری برابر با 1 باشد، مقدار میانگین عادی برابر با 0.5 خواهد بود در صورتی که مقدار میانگین هارمونیکی برابر با 0 خواهد بود. در واقع این میانگین نسبت به مقادیر بسیار کوچک، حساسیت بیشتری از خود نشان می‌دهد.<br/>
-دلیل استفاده از این معیار این است که ما می‌خواهیم هر دو معیار را بالا (و تا جای ممکن نزدیک به هم) نگه داریم که بالا بودن 
-F1-Score
-این مورد را تضمین می‌کند.
-</div>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-9-
-معیار
-Macro-Avg
-صرفا میانگین معیارهای
-F1-Score
-برای هر کلاس است که باعث می‌شود یک دید کلی نسبت به مقادیر
-F1-Score
-هر کلاس داشته باشیم.<br/><br/>
-معیار
-Weighted-Avg
-میانگین وزن‌دار معیارهای
-F1-Score
-برای هر کلاس است به طوری که وزن هر کلاس، تعداد نمونه‌های آن کلاس است که برای 
-test
-شدن استفاده شده است.<br/><br/>
-معیار
-Micro-Avg
-به این صورت است که ابتدا مقادیر
-Micro-Precision
-و
-Micro-Recall
-محاسبه می‌شوند و سپس از آن‌ها مقدار
-Micro-Avg
-محاسبه می‌شود. در این معیار تمامی نمونه‌ها و پیش‌بینی ها را در کنار هم در نظر می‌گیریم. مقادیر
-Micro-Precision
-و
-Micro-Recall
-به صورت زیر محاسبه می‌شوند:
-</div>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-$$Micro-Precision=\dfrac{TP}{TP+FP}$$$$Micro-Recall=\dfrac{TP}{TP+FN}$$
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-با توجه به اینکه همه پیش‌بینی‌ها را در کنار هم در نظر می‌گیریم، هر پیش‌بینی درست یک
-TP
-و هر پیش‌بینی اشتباه یک
-FP و FN
-خواهد بود. برای مثال اگر کلاس 
-A
-را اشتباها در کلاس
-B
-پیش‌بینی کنیم، یک
-FP
-برای کلاس
-B
-و یک
-FN
-برای کلاس
-A
-خواهیم داشت. در نتیجه مقادیر
-Micro-Precision
-و
-Micro-Recall
-یکسان خواهند بود. از طرفی مقدار
-Accuracy
-نیز برابر با همین مقادیر خواهد بود.
-</div>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-$$Micro-Avg=Micro-Precision=Micro-Recall=Accuracy$$
+<h4 id="3.3-Multi-Class-Metrics">3.3 Multi-Class Metrics<a class="anchor-link" href="#3.3-Multi-Class-Metrics">&#182;</a></h4><p><code>Macro Average</code> is the average of the <code>F1 Score</code> for each class. It is used to measure the accuracy of a multi-class classifier. It can be calculated by the following formula:</p>
+$$MacroAverage=\dfrac{F1_1+F1_2+...+F1_n}{n}$$<p><code>Weighted Average</code> is the average of the <code>F1 Score</code> for each class weighted by the number of samples in each class. It is used to measure the accuracy of a multi-class classifier. It can be calculated by the following formula:</p>
+$$WeightedAverage=\dfrac{F1_1\times N_1+F1_2\times N_2+...+F1_n\times N_n}{N_1+N_2+...+N_n}$$<p>where $N_i$ is the number of samples in class $i$.</p>
+<p><code>Micro Average</code> is calculated using <code>Micro Precision</code> and <code>Micro Recall</code>. The mentioned metrics are calculated by the following formulas:</p>
+$$MicroPrecision=\dfrac{TP}{TP+FP}$$$$MicroRecall=\dfrac{TP}{TP+FN}$$<p>where $TP$ is the number of true positives, $FP$ is the number of false positives and $FN$ is the number of false negatives.</p>
+<p><code>Micro Average</code> is the average of <code>Micro Precision</code> and <code>Micro Recall</code>. It is used to measure the accuracy of a multi-class classifier. It can be calculated by the following formula:</p>
+$$MicroAverage=\dfrac{MicroPrecision\times MicroRecall}{MicroPrecision+MicroRecall}$$<p>As we put all the classes together, <code>Micro Precision</code> and <code>Micro Recall</code> would have the same value as <code>Accuracy</code>.</p>
+$$MicroAverage = MicroPrecision = MicroRecall = Accuracy$$
 </div>
 </div>
 </div>
@@ -16257,11 +16037,7 @@ $$Micro-Avg=Micro-Precision=Micro-Recall=Accuracy$$
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-10- 
-جدول معیارها برای هر حالت در بخش زیر آورده شده است:
-</div>
-
+<h4 id="3.4-Results">3.4 Results<a class="anchor-link" href="#3.4-Results">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -16272,10 +16048,7 @@ $$Micro-Avg=Micro-Precision=Micro-Recall=Accuracy$$
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h4>حالت Unigram بدون Additive Smoothing:</h4>
-</div>
-
+<h5 id="3.4.1-Unigram-without-Additive-Smoothing">3.4.1 Unigram without Additive Smoothing<a class="anchor-link" href="#3.4.1-Unigram-without-Additive-Smoothing">&#182;</a></h5>
 </div>
 </div>
 </div>
@@ -16425,10 +16198,7 @@ $$Micro-Avg=Micro-Precision=Micro-Recall=Accuracy$$
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h4>حالت Bigram بدون Additive Smoothing:</h4>
-</div>
-
+<h5 id="3.4.2-Bigram-without-Additive-Smoothing">3.4.2 Bigram without Additive Smoothing<a class="anchor-link" href="#3.4.2-Bigram-without-Additive-Smoothing">&#182;</a></h5>
 </div>
 </div>
 </div>
@@ -16578,10 +16348,7 @@ $$Micro-Avg=Micro-Precision=Micro-Recall=Accuracy$$
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h4>حالت Unigram با Additive Smoothing:</h4>
-</div>
-
+<h5 id="3.4.3-Unigram-with-Additive-Smoothing">3.4.3 Unigram with Additive Smoothing<a class="anchor-link" href="#3.4.3-Unigram-with-Additive-Smoothing">&#182;</a></h5>
 </div>
 </div>
 </div>
@@ -16731,21 +16498,19 @@ $$Micro-Avg=Micro-Precision=Micro-Recall=Accuracy$$
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-همانطور که مشاهده می‌شود، معیارهای
-Macro-Avg
-و
-Accuracy
-در این حالت، بیشتر از 90 درصد هستند.<br/><br/>
-11-
-در حالت بدون 
-Additive Smoothing
-همانطور که پیش‌تر توضیح داده شد، ممکن است به دلیل عدم وجود یکی از کلمات، مقدار احتمال برابر با 0 شود و خبر به موضوع غیر مرتبطی اختصاص داده شود و به همین دلیل بعضی از معیارها پایین‌تر از حد انتظار است. اما در حالت
-Additive Smoothing
-به دلیل افزودن مقدار ثابتی به تعداد کلمات، احتمال نهایی برای هر کلاس، بیشتر از صفر است و به همین دلیل 
-Classification
-عملکرد بهتری دارد.
+<p>As it is shown in the above table, the <code>Macro Average</code> and <code>Accuracy</code> metrics are more than 90%.</p>
+
 </div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="3.5-Analysis">3.5 Analysis<a class="anchor-link" href="#3.5-Analysis">&#182;</a></h4><p>When additive smoothing is not used, the accuracy can decrease significantly, as mentioned in the previous section. This is why the best accuracy is achieved when additive smoothing is used.</p>
 
 </div>
 </div>
@@ -17201,12 +16966,7 @@ Classification
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-12-
-همانطور که مشاهده می‌شود، اکثر خبرهایی که موضوعشان غلط تشخیص داده شده، مربوط به موضوع‌های «سیاسی»، «حوادث» و یا «فرهنگی/هنری» هستند. علت این مورد این است که احتمالا تعدادی از کلمات در همه این موضوعات به وفور یافت می‌شوند. احتمالا با تغییر در بخش پیش‌پردازش بتوانیم این مشکل را بهبود ببخشیم. برای مثال می‌توانیم نمودار کلمات پرتکرار را برای تعداد بیشتری کلمه (n) رسم کنیم و کلمات پر تکرار در تمام این بخش‌ها را نیز به 
-Stopwords
-اضافه کنیم.
-</div>
+<h4 id="3.6-What-can-be-Done-to-Improve-the-Accuracy?">3.6 What can be Done to Improve the Accuracy?<a class="anchor-link" href="#3.6-What-can-be-Done-to-Improve-the-Accuracy?">&#182;</a></h4><p>Most of the news that are wrongly classified are in the &quot;سیاسی&quot; (Political), &quot;حوادث&quot; (Accidents) and &quot;فرهنگی/هنری&quot; (Cultural) categories. This is because these categories have a lot of words in common. For example, the word &quot;مردم&quot; (People) is used in all of these categories. This means that the classifier may not be able to distinguish between these categories. To improve the accuracy, we can change the preprocessing steps. For example, we can add more stop words to the list.</p>
 
 </div>
 </div>
