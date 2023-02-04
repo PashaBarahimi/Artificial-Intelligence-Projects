@@ -14597,10 +14597,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h1>پروژه سوم</h1>
-</div>
-
+<h1 id="Computer-Assignment-3-(Game)">Computer Assignment 3 (Game)<a class="anchor-link" href="#Computer-Assignment-3-(Game)">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -14611,10 +14608,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>پیاده‌سازی</h2>
-</div>
-
+<h2 id="Implementation">Implementation<a class="anchor-link" href="#Implementation">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -14689,15 +14683,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-کلاس
-Player
-که نوعی 
-enum
-است، برای حذف کد تکراری از کلاس
-Sim
-اضافه شده است.
-</div>
+<p><code>Player</code> class is an Enum, which is used to prevent code duplication from <code>Sim</code> class.</p>
 
 </div>
 </div>
@@ -14755,9 +14741,7 @@ Sim
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-تابع فوق به ازای هر 3 خطی که هر بازیکن گذاشته است، تعداد رئوس تشکیل‌دهنده این 3 خط را بدست می‌آورد و در صورتی که این مقدار برابر با 3 باشد، آن را یک مثلث به حساب آورده و برنده بازی را مشخص می‌کند.
-</div>
+<p>The above function will check each triple of lines and calculates the number of points that the triple contains. If the triple contains 3 points, then it will be considered as a triangle and that played will lose the game. Otherwise, the game will continue.</p>
 
 </div>
 </div>
@@ -14844,11 +14828,7 @@ Sim
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-تابع 
-show_triangle
-در این کلاس، برای نشان دادن مثلثی که باعث باخت یک بازیکن شده است، اضافه شده است. این تابع مثلث ساخته شده را به رنگ سفید درمی‌آورد.
-</div>
+<p>The <code>show_triangle</code> function will show the triangle which made the player lose the game. It will make the triangle white.</p>
 
 </div>
 </div>
@@ -14964,48 +14944,20 @@ show_triangle
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-برای انجام الگوریتم
-Minimax
-از کلاس
-MinimaxNode
-استفاده شده که نتیجه آن، ساخت درخت
-Minimax
-است.<br/>
-<h3>هیوریستیک</h3>
-برای هیوریستیک باید احتمال تشکیل مثلث و باخت هر بازیکن را در نظر بگیریم. به همین دلیل، ابتدا مقدار هیوریستیک را برابر با صفر می‌گذاریم و سپس به ازای هر خط در
-available_moves،
-اگر بازیکن با انتخاب این خط یک مثلث تشکیل می‌داد، یک واحد از مقدار هیوریستیک کم می‌کنیم و اگر حریف با انتخاب این خط باعث تشکیل مثلث می‌شد، یک واحد به هیوریستیک اضافه می‌کنیم. در نهایت اگر بازیکن مرحله فعلی قرمز بود، مقدار هیوریستیک، و اگر آبی بود، (استیت مینیمم‌کننده)، قرینه این مقدار را برمی‌گردانیم. لازم به ذکر است که اگر در استیت فعلی برنده و بازنده مشخص شده باشد، این تابع، اگر برنده قرمز باشد مقدار
-&infin;
-و اگر برنده آبی باشد، مقدار
-&infin;-
-را برمی‌گرداند.<br/><br/>
-<b>‌پس از چند بار انجام الگوریتم مشخص شد که این الگوریتم در عمق 1 و 3 به خوبی عمل می‌کند ولی در عمق‌های 5 و 7، احتمال برد بسیار کاهش می‌یابد. پس از بررسی‌های مکرر متوجه شدم که مشکل این است که در عمق‌های بالا، برنده و بازنده در اکثر
-nodeهای
-درخت به صورت قطعی مشخص شده‌اند و در نتیجه مقادیر اکثر شاخه‌ها 
-&infin;
-و یا
-&infin;-
-خواهد بود. این
-agent
-با انجام الگوریتم
-Minimax
-فرض می‌کند که حریف نیز کاملا هوشمندانه عمل می‌کند در صورتی که حریف کاملا رندوم عمل می‌کند. همین دلیل باعث می‌شود که 
-agent
-زمانی که به یک
-stateای
-می‌رسد که مقدار تمامی شاخه‌های آن 
-&infin;-
-است، تفاوتی بین آن‌ها نبیند و یکی از آن‌ها را انتخاب کند. شاخه انتخاب شده می‌تواند باعث شود که بازیکن قرمز در مرحله‌ای ببازد که هنوز حرکت دیگری وجود دارد. این مورد در حالتی است که اگر 
-agent
-مسیر طولانی‌تری را انتخاب می‌کرد، ممکن بود با عملکرد رندوم بازیکن آبی به برد برسد. به همین دلیل تصمیم گرفتم عمق برگی که امتیازش به کمک تابع
-evaluate_
-محاسبه می‌شود را نیز در الگوریتم دخیل کنم که اگر در یک 
-state
-چند شاخه با مقدار یکسان قرار داشت، شاخه‌ای انتخاب شود که عمق برگی که به 
-&infin;-
-رسیده است بیشتر باشد. همین مورد باعث افزایش احتمال برد بازیکن قرمز در عمق‌های بالا می‌شود.</b>
+<p><code>MinimaxNode</code> is a class used in the mini-max algorithm. The algorithm will make a tree.</p>
+
 </div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Heuristic">Heuristic<a class="anchor-link" href="#Heuristic">&#182;</a></h3><p>As the heuristic, we should calculate the probability of the formation of a triangle by each player. As a result, first initialize the heuristic with 0. Then, for each line in <code>available_moves</code>, if the line will make a triangle, then decrease the heuristic by 1. If the other player will make a triangle, then increase the heuristic by 1. Finally, if the current player is <em>Red</em>, then return the heuristic, otherwise return the negative of the heuristic. Also, if the winner has been decided in the current state, then return the heuristic as $\pm\infty$ depending on the winner.</p>
+<p>After running the algorithm for multiple times, I understood that the algorithm will not work properly if the maximum height for algorithm is more than 4. This is because for this level, the winner is decided in the leaf nodes of most of the paths. As a result, the algorithm will see that it will lose the game in either case and may choose a path which can make the player lose even in the next move. The reason is that we use mini-max algorithm for the games that the opponent acts smartly. However, in this game, the opponent acts randomly. So, even when the algorithm understands that all the paths will lead to the loss, if it chooses a path that may last longer, then it will have a higher chance of winning. This is why I changed the algorithm to take the loss height into account to choose the path. This change increased the performance of the algorithm.</p>
 
 </div>
 </div>
@@ -15124,10 +15076,7 @@ state
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>بررسی نتایج</h2>
-</div>
-
+<h2 id="Results">Results<a class="anchor-link" href="#Results">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -15231,9 +15180,7 @@ Win chance: 100%
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-در این بخش چون زمان انجام الگوریتم با عمق 5 و بدون هرس بسیار زیاد است، این یک مورد را به جای 100 بار، 50 بار اجرا کردم.
-</div>
+<p>As the algorithm takes a long time to run for the maximum height of 5 without pruning, I ran the algorithm 50 times instead of 100 times.</p>
 
 </div>
 </div>
@@ -15304,9 +15251,7 @@ Win chance: 100%
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-همانطور که مشاهده می‌شود، زمان اجرای تمامی حالات به مراتب نسبت به حالتی که هرس را انجام نمی‌دادیم، کاهش یافته است.
-</div>
+<p>As it is shown, the algorithm time is decreased significantly by pruning. Also, the winning rate is over 98% in all cases, which shows the effectiveness of the algorithm and the heuristic.</p>
 
 </div>
 </div>
@@ -15318,9 +15263,20 @@ Win chance: 100%
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-احتمال برد در تمامی حالات بالای 98 درصد است که نشان‌دهنده عملکرد مناسب الگوریتم و هیوریستیک مورد استفاده است.
+<h2 id="Questions">Questions<a class="anchor-link" href="#Questions">&#182;</a></h2>
 </div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="1.-What-does-a-good-heuristic-look-like?-How-did-you-design-your-heuristic?">1. What does a good heuristic look like? How did you design your heuristic?<a class="anchor-link" href="#1.-What-does-a-good-heuristic-look-like?-How-did-you-design-your-heuristic?">&#182;</a></h3><p>A good heuristic must predict the future state of the game well. In this game, we'd better use the probability of the formation of a triangle as the heuristic. As mentioned in the heuristic section, the heuristic is decreased by 1 for each line in the <code>available_moves</code> that makes a triangle for the current player and increased by 1 for each line in the <code>available_moves</code> that makes a triangle for the other player.</p>
+<p>Another approach can be not taking the probability of the formation of a triangle by the opponent into account. This heuristic will not be as good as the previous one.</p>
+<p>Another approach is to calculate the degree of each vertex (the number of lines with the same color that are connected to the vertex). Then, the heuristic will be the sum of the degrees of the vertices. In this case, for two separate lines, the heuristic will be 4, and if the two lines are connected by a vertex, the heuristic will also be 4. However, the second case can lead to the formation of a triangle. So, this heuristic is not good. My heuristic will return 0 and 1 for the mentioned cases, respectively.</p>
 
 </div>
 </div>
@@ -15332,46 +15288,20 @@ Win chance: 100%
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>سوالات</h2>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<ol>
-    <li>یک هیوریستیک خوب باید بتواند با احتمال بالایی، برد یا باخت بازیکن را پیش‌بینی کند که بتوانیم بهترین مسیر را از ابتدا پیدا کنیم. در این سوال برنده و بازنده با تشکیل مثلث مشخص می‌شوند و به همین دلیل بهترین روش این است که روی احتمال تشکیل مثلث توسط هر بازیکن مانور بدهیم. این هیوریستیک به ازای هر مثلثی که حریف بتواند در حرکت بعدی‌اش تشکیل دهد یک امتیاز مثبت، و به ازای هر مثلثی که بازیکن فعلی بتواند در حرکت بعدی‌اش تشکیل دهد، یک امتیاز منفی در نظر می‌گیرد. و به همین دلیل باعث می‌شود حالتی را انتخاب کنیم که احتمال بازنده بودن خودمان (برنده شدن حریف) کمینه شود. یک روش دیگر این است که مثلث‌های قابل تشکیل توسط حریف را محاسبه نکنیم و فقط به ازای تشکیل هر مثلث توسط خودمان، یک امتیاز منفی در نظر بگیریم. با امتحان کردن این هیوریستیک متوجه می‌شویم که احتمال برد کاهش می‌یابد. روش دیگر این است که مجموعه درجه رئوس را محاسبه کنیم که در این حالت اگر دو خط کاملا با فاصله از همدیگر قرار بگیرند، مقدار هیوریستیک برابر با 4 خواهد شد و اگر دو خط مورد نظر در یک راس مشترک باشند نیز، مقدار هیوریستیک برابر با 4 خواهد بود در صورتی که در حالت دوم، احتمال تشکیل مثلث بیشتر است. در همین مثال، هیوریستیک پیاده‌سازی شده برای حالت اول مقدار 0 و برای حالت دوم مقدار 1 را برمی‌گرداند.</li><br/>
-    <li>وقتی عمق افزایش می‌یابد، بدیهی‌ست که تعداد گره‌های مشاهده شده افزایش پیدا می‌کند و در نتیجه زمان الگوریتم نیز بیشتر می‌شود. برای مثال اگر بخواهیم تا عمق 
-    n-ام
-    را بدون هرس کردن محاسبه کنیم، تعداد گره‌های مشاهده شده به صورت زیر بدست می‌آید. همچنین، به دلیل اینکه با افزایش عمق احتمال اینکه برنده و بازنده بازی به صورت قطعی مشخص شود بیشتر می‌شود، به صورت دقیق‌تری می‌توانیم مسیر مناسب را پیش‌بینی کنیم.
-    همانطور که پیش‌تر گفته شد، اگر عمق برگ‌ها را در الگوریتم دخیل نکنیم، شانس پیروزی کاهش می‌یابد، اما با دخیل کردن این مورد، احتمال برد به مقدار زیادی افزایش می‌یابد.</li><br/>
-    <li>زمانی که از هرس کردن استفاده می‌کنیم، ترتیب ساخت درخت اهمیت زیادی دارد زیرا ممکن است در یک ترتیب تمام 
-    stateها
-    مانند حالتی که هرس نمی‌کنیم پیمایش شوند و در ترتیب دیگری، ممکن است تعداد زیادی از
-    stateها 
-    هرس شوند و باعث کاهش زمان انجام الگوریتم شود. در این سوال ترتیب اولیه اهمیتی ندارد زیرا تمام رئوس و خط‌ها یکسان هستند و هیچ اختلافی بین هیچ جفتی از آن‌ها وجود ندارد. اما لازم است که در تمام مراحل همین ترتیب را حفظ کنیم زیرا طبق الگوریتم، اگر چند حالت با امتیاز مشابه وجود داشته باشد، همواره اولین حالت انتخاب می‌شود و در صورتی که ترتیب اولیه حفظ شود، اکثر یال‌ها از رئوس با شماره کوچک‌تر خارج می‌شود که باعث نزدیک شدن این رئوس به تشکیل مثلث می‌شود. به همین دلیل در هرس آلفا و بتا نیز ممکن است قبل از پیمایش کل درخت، مسیر مناسب را پیدا کنیم و نیاز به ساخت کل درخت نباشد.</li>
-</ol>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="2.-What-is-the-effect-of-increasing-the-depth-of-the-search-tree?">2. What is the effect of increasing the depth of the search tree?<a class="anchor-link" href="#2.-What-is-the-effect-of-increasing-the-depth-of-the-search-tree?">&#182;</a></h3><p>As the depth of the search tree increases, the number of nodes which the algorithm will visit increases. As a result, the algorithm will take more time to run. However, the increase in the accuracy can depend on the algorithm. As mentioned in heuristic section, if we take the depth of the loss into account, then the algorithm will be more accurate. Otherwise, the accuracy will decrease as the depth increases.</p>
 $$statesCount = \dfrac{(15 - {currentDepth})!}{(15 - {currentDepth} - n)!}$$$$if\ n = 7\ \&amp;\ currentDepth = 0\ (root)\longrightarrow statesCount = \dfrac{15!}{8!} = 32,432,400$$
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="3.-what-is-the-effect-in-ordering-the-nodes-when-pruning-the-search-tree?">3. what is the effect in ordering the nodes when pruning the search tree?<a class="anchor-link" href="#3.-what-is-the-effect-in-ordering-the-nodes-when-pruning-the-search-tree?">&#182;</a></h3><p>When we use pruning, the order of nodes is important. If we visit the nodes in the wrong order, then we may not be able to prune the nodes well. In this problem, we don't use a specific order at first. However, it is better not to change the initial order of the nodes when running the algorithm.</p>
+
 </div>
 </div>
 </div>
