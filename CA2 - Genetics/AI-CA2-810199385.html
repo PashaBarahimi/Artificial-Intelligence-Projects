@@ -14539,6 +14539,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
   display: none;
 }
 
+@page {
+    margin: 0.5in; /* Margin for each printed piece of paper */
+}
+
 @media print {
   .jp-Cell-inputWrapper,
   .jp-Cell-outputWrapper {
@@ -14593,10 +14597,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir ='rtl'>
-<h1>پروژه دوم</h1>
-</div>
-
+<h1 id="Computer-Assignment-2-(Genetics)">Computer Assignment 2 (Genetics)<a class="anchor-link" href="#Computer-Assignment-2-(Genetics)">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -14609,7 +14610,6 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
 <span class="kn">from</span> <span class="nn">timeit</span> <span class="kn">import</span> <span class="n">default_timer</span> <span class="k">as</span> <span class="n">timer</span>
 </pre></div>
 
@@ -14673,11 +14673,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>بخش اول: مشخص کردن مفاهیم اولیه</h2>
-    هر ژن را شامل یک کاراکتر در نظر می‌گیریم که می‌تواند عدد و یا اپراتور باشد. هر کروموزوم را شامل تعدادی ژن در نظر می‌گیریم که این تعداد، با تعداد جایگاه‌های معادله برابر است.
-    لازم به ذکر است که ژن‌های اعداد به صورت یکی در میان در کروموزوم قرار می‌گیرند و ژن‌های اپراتورها بین ژن‌های اعداد قرار می‌گیرند. به همین دلیل است که تعداد ژن‌های اعداد همواره یک واحد بیشتر از تعداد ژن‌های اپراتورها است.
-</div>
+<h2 id="Part-1:-Basic-Concepts">Part 1: Basic Concepts<a class="anchor-link" href="#Part-1:-Basic-Concepts">&#182;</a></h2><p>Each gene will be considered as a character which can be either an operand or operator. Each chromosome will consist of some genes and the number of these genes will be the equation length. Each operator gene will be placed in the middle of two operand genes. This is why the number of operand genes will be always one unit more than the number of operator genes.</p>
 
 </div>
 </div>
@@ -14689,12 +14685,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>بخش دوم: تولید جمعیت اولیه</h2>
-جمعیت اولیه در متغیر
-POPULATON_SIZE
-تعریف شده است. مقدار این متغیر پس از تست‌های مختلف به این عدد تغییر یافته است.
-</div>
+<h2 id="Part-2:-Initial-Population">Part 2: Initial Population<a class="anchor-link" href="#Part-2:-Initial-Population">&#182;</a></h2><p>The initial population size is defined in the <code>POPULATION_SIZE</code> variable.</p>
 
 </div>
 </div>
@@ -14706,16 +14697,8 @@ POPULATON_SIZE
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>بخش سوم: پیاده‌سازی و مشخص کردن تابع معیار سازگاری</h2>
-مقدار نزدیک بودن یک کروموزوم به پاسخ نهایی مسئله را معیار سازگاری در نظر می‌گیریم.
-لازم به ذکر است که معیار سازگاری بالاتر، باید نشان‌دهنده کروموزوم قوی‌تر باشد، به همین دلیل از محاسبات کسری استفاده می‌کنیم.
-اگر مقدار 
-expression
-یک کروموزوم را محاسبه کنیم و آن را 
-x
-بنامیم، می‌توانیم مقدار معیار سازگاری را به صورت زیر محاسبه کنیم:
-</div>
+<h2 id="Part-3:-Fitness-Function">Part 3: Fitness Function<a class="anchor-link" href="#Part-3:-Fitness-Function">&#182;</a></h2><p>The fitness function determines how near the equation is to the target value. The more near the equation is to the target value, the more fitness it has. The fitness function is defined as follows:</p>
+$$fitness = \frac{1}{1 + \left|target - equation\right|}$$<p>Based on the above formula, the fitness of an equation is always between 0 and 1. The fitness of an equation is 1 if the equation is equal to the target value.</p>
 
 </div>
 </div>
@@ -14727,7 +14710,8 @@ x
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>$fitness(x) = \dfrac{1}{1+|x-goal|}$</p>
+<h2 id="Part-4:-Implementing-Crossover-and-Mutation-and-Generating-Next-Population">Part 4: Implementing Crossover and Mutation and Generating Next Population<a class="anchor-link" href="#Part-4:-Implementing-Crossover-and-Mutation-and-Generating-Next-Population">&#182;</a></h2><h3 id="Crossover">Crossover<a class="anchor-link" href="#Crossover">&#182;</a></h3><p>In order to make a crossover pool, first we generate a random number between 0 and 1. Then, for each pair of chromosomes in mating pool, if the number is more than <code>CROSSOVER_PROBABILITY</code>, we select the chromosomes for the next phase without any change. Otherwise, we swap the genes in the middle of two random points, between the chromosomes. In this case, we have created a pair of child chromosomes from their parents.</p>
+<h3 id="Mutation">Mutation<a class="anchor-link" href="#Mutation">&#182;</a></h3><p>For each gene in each chromosome of the crossover pool, we generate a random number between 0 and 1. If the number is less than <code>MUTATION_PROBABILITY</code>, we change the gene to a random character. It is important to note that if the gene is an operator, we change it to another operator. Otherwise, we change it to another operand.</p>
 
 </div>
 </div>
@@ -14739,54 +14723,7 @@ x
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-با توجه به تابع ذکر شده، معیار سازگاری یک کروموزم بین 0 تا 1 خواهد بود که مقدار 1 نشان‌دهنده پاسخ نهایی مسئله است.
-</div>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>بخش چهارم: پیاده‌سازی crossover و mutation و تولید جمعیت بعدی</h2>
-<h3>Crossover:</h3>
-برای ایجاد یک
-crossover pool، 
-ابتدا جفت کروموزوم‌های
-mating pool
-را در نظر می‌گیریم. یک عدد رندوم بین 0 و 1 می‌سازیم و در صورتی که این عدد بیشتر از
-CROSSOVER_PROBABILITY
-بود، جفت کروموزوم‌های انتخاب شده را عینا برای مرحله بعد انتخاب می‌کنیم. در غیر این صورت، 2 نقطه را در کروموزم‌ها در نظر می‌گیریم و ژن‌های بین این 2 نقطه را در کروموزوم‌ها
-swap
-می‌کنیم. به این صورت توانستیم از 2 کروموزوم پدر و مادر، 2 فرزند را ایجاد کنیم.
-<h3>Mutation:</h3>
-برای انجام این کار، روی هر کدام از کروموزوم‌های
-crossover pool
-ایجاد شده در مرحله قبل، پیمایش می‌کنیم. به ازای ژنی که در هر کدام از این کروموزوم‌ها وجود دارد، ابتدا یک عدد رندوم بین 0 و 1 می‌سازیم. در صورتی که این عدد بیشتر از
-MUTATION_PROBABILITY
-بود، ژن مورد نظر را عینا در نظر می‌گیریم. در غیر این صورت، ژن مورد نظر را با ژن دیگری جایگزین می‌کنیم. لازم به ذکر است که اگر ژن قبلی عدد بوده است، ژن جدید نیز عدد خواهد بود، و اگر ژن قبلی اپراتور بوده است، ژن جدید نیز اپراتور خواهد بود.
-</div>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>بخش پنجم: ایجاد الگوریتم ژنتیک روی مسئله</h2>
-الگوریتم نهایی به صورت زیر است:
-</div>
+<h2 id="Part-5:-Running-the-Genetic-Algorithm">Part 5: Running the Genetic Algorithm<a class="anchor-link" href="#Part-5:-Running-the-Genetic-Algorithm">&#182;</a></h2><p>The algorithm is as follows:</p>
 
 </div>
 </div>
@@ -14799,8 +14736,7 @@ MUTATION_PROBABILITY
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">EquationBuilder</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">EquationBuilder</span><span class="p">:</span>
     <span class="n">operators</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
     <span class="n">operands</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
     <span class="n">equationLength</span><span class="p">:</span> <span class="nb">int</span>
@@ -14916,51 +14852,13 @@ MUTATION_PROBABILITY
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>بخش ششم: سوالات</h2>
-<ol>
-    <li>اگر جمعیت اولیه خیلی کم باشد، گوناگونی در جمعیت کمتر می‌شود و احتمال اینکه الگوریتم به پاسخ درست مسئله برسد کاهش می‌یابد. برای کمتر کردن اثر این مشکل می‌توانیم مقدار 
-    mutation
-    را افزایش دهیم. همچنین اگر مقدار جمعیت اولیه خیلی زیاد باشد، زمان الگوریتم و حافظه مورد نیاز آن افزایش پیدا می‌کند و در این صورت لازم است زمانی غیر ضروری را به اجرای الگوریتم اختصاص دهیم.</li>
-    <li>اگر جمعیت در هر مرحله افزایش پیدا کند، با وجود احتمال افزایش دقت الگوریتم، زمان اجرا و حافظه مصرفی الگوریتم در هر مرحله افزایش پیدا می‌کند و احتمالا به مشکل حافظه برمی‌خوریم. در واقع اصلا نیازی به انجام این کار نیست زیرا در هر مرحله می‌توانیم کروموزوم‌هایی را که فاصله زیادی از پاسخ نهایی دارند، از جمعیت حذف کنیم و جمعیت را ثابت و در اندازه‌ای مناسب نگه داریم.</li>
-    <li>crossover
-    برای ایجاد کروموزوم جدید از ترکیب دو کروموزوم دیگر استفاده می‌شود و معمولا احتمال بالایی (حداقل 80 درصد) به آن اختصاص می‌یابد. از طرفی،
-    mutation
-    برای تغییر یک ژن خاص و ایجاد یک نویز در آن استفاده می‌شود زیرا ممکن است به ما کمک کند که از یک
-    local extremum
-    خارج شویم. همانند رخداد این اتفاق در طبیعت، احتمال انجام این کار باید کم (حداکثر 5 درصد) باشد.</li>
-    <li>برای سریع‌تر رسیدن به جواب باید تعدادی مورد را در الگوریتم در نظر بگیریم. ابتدا باید پارامترهای الگوریتم را به درستی مقداردهی کنیم. سپس باید به نکته دقت کنیم که اعداد و اپراتورها به صورت یکی در میان و با شروع از عدد در کروموزوم قرار می‌گیرند. با رعایت کردن این مورد، تعدادی از حالات اضافه را از الگوریتم حذف می‌کنیم. لازم به ذکر است که حفظ جایگاه اعداد و اپراتورها در عملیات 
-    mutation و crossover
-    نیز اجباری است.</li>
-    <li>به طور کلی در الگوریتم‌های ژنتیک ممکن است در یک 
-    local extremum
-    بمانیم و از آنجا خارج نشویم. راه حل این مشکل استفاده از 
-    mutation
-    و یا
-    multi-start
-    است. در اینجا با توجه به اینکه 
-    mutation
-    کافی است و در اکثر موارد پاسخ مورد نظر را می‌دهد، از آن استفاده می‌کنیم. پیاده‌سازی
-    multi-start
-    نیز در این قسمت انجام شده است.</li>
-    <li>برای اینکه بتوانیم الگوریتم را در صورت وجود نداشتن جواب متوقف کنیم، یک محدودیت برای تعداد نسل‌های ساخته شده در نظر می‌گیریم. با توجه به اینکه این محدودیت باید بر اساس تعداد جایگاه‌های ساختار معادله و مقدار
-    POPULATION_SIZE
-    تعیین شود، این محدودیت را به صورت زیر تعیین می‌کنیم:
-</ol>
-</div>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>$GenLimit = 2\times POPULATION\_SIZE\times equationLength$</p>
-
+<h2 id="Part-6:-Questions">Part 6: Questions<a class="anchor-link" href="#Part-6:-Questions">&#182;</a></h2><h3 id="1.-How-can-very-large-or-very-small-population-sizes-affect-the-performance-of-the-algorithm?">1. How can very large or very small population sizes affect the performance of the algorithm?<a class="anchor-link" href="#1.-How-can-very-large-or-very-small-population-sizes-affect-the-performance-of-the-algorithm?">&#182;</a></h3><p>If the population size is very small, the algorithm may not be able to find the best solution because it may not have enough chromosomes to select from. On the other hand, if the population size is very large, the algorithm may take a long time to find the best solution and it may be unnecessary to spend that much time.</p>
+<h3 id="2.-What-happens-if-the-population-size-increases-in-each-generation?">2. What happens if the population size increases in each generation?<a class="anchor-link" href="#2.-What-happens-if-the-population-size-increases-in-each-generation?">&#182;</a></h3><p>This <strong>may</strong> result in a better solution. However, it increases the time complexity and the memory usage. Also, it is unnecessary to do this because we can remove the chromosomes with the lowest fitness from the population in order to keep the population size constant.</p>
+<h3 id="3.-What-is-the-effect-of-crossover-and-mutation?-Is-it-possible-to-use-only-one-of-them?">3. What is the effect of crossover and mutation? Is it possible to use only one of them?<a class="anchor-link" href="#3.-What-is-the-effect-of-crossover-and-mutation?-Is-it-possible-to-use-only-one-of-them?">&#182;</a></h3><p>Crossover is used to create new chromosomes from the existing chromosomes. Mutation is used to change the genes of the chromosomes. If we use only one of them, we may not be able to find the best solution. For example, if we use only crossover, we may stop at a local maximum. If we use only mutation, we may not be able to find the best solution. It is important to note that the crossover and mutation probabilities should be chosen carefully. The crossover probability is usually at least 80% and the mutation probability is usually at most 5%.</p>
+<h3 id="4.-How-to-accelerate-the-algorithm?">4. How to accelerate the algorithm?<a class="anchor-link" href="#4.-How-to-accelerate-the-algorithm?">&#182;</a></h3><p>Fitness function, parameters such as the probability of crossover and mutation, and the population size should be chosen carefully. Also, the crossover and mutation functions can affect the performance of the algorithm.</p>
+<h3 id="5.-How-to-stop-the-algorithm-if-it-is-not-converging?">5. How to stop the algorithm if it is not converging?<a class="anchor-link" href="#5.-How-to-stop-the-algorithm-if-it-is-not-converging?">&#182;</a></h3><p>A common problem in genetic algorithms is that it may stop at a local maximum instead of the global maximum. Mutation is a good way to solve this problem. Also, we can limit the number of generations in order to stop the algorithm if it is not converging. In this case, we may also use multi-start to increase the probability of finding the global maximum.</p>
+<h3 id="6.-How-to-stop-the-algorithm-if-there-exists-no-solution?">6. How to stop the algorithm if there exists no solution?<a class="anchor-link" href="#6.-How-to-stop-the-algorithm-if-there-exists-no-solution?">&#182;</a></h3><p>As mentioned in the previous question, we can limit the number of generations in order to stop the algorithm if there exists no solution. We can use the following formula for the generation limit:</p>
+$$GenLimit = 2\times POPULATION\_SIZE\times equationLength$$
 </div>
 </div>
 </div>
@@ -15054,9 +14952,7 @@ MUTATION_PROBABILITY
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-همانطور که مشاهده می‌شود، پاسخ مسئله یافت شده است.
-</div>
+<p>As it is shown above, the answer is found.</p>
 
 </div>
 </div>
@@ -15105,11 +15001,7 @@ MUTATION_PROBABILITY
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-الگوریتم ارائه شده می‌تواند در میانگین زمان حدود
-0.2s
-پاسخ مسئله را محاسبه کند.
-</div>
+<p>The algorithm can find the solution in about 0.2s approximately.</p>
 
 </div>
 </div>
@@ -15164,9 +15056,7 @@ Actual: 9
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-با توجه به اینکه معادله بالا امکان ساخته شدن ندارد، الگوریتم پس از مدتی متوقف شده و نزدیک‌‌ترین جواب را برمی‌گرداند.
-</div>
+<p>As the above equation cannot be built, the algorithm has stopped after some time and the nearest answer is returned.</p>
 
 </div>
 </div>
