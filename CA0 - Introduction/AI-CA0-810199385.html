@@ -14539,6 +14539,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
   display: none;
 }
 
+@page {
+    margin: 0.5in; /* Margin for each printed piece of paper */
+}
+
 @media print {
   .jp-Cell-inputWrapper,
   .jp-Cell-outputWrapper {
@@ -14593,10 +14597,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h1>پروژه صفرم</h1>
-</div>
-
+<h1 id="Computer-Assignment-0-(Introduction-to-AI)">Computer Assignment 0 (Introduction to AI)<a class="anchor-link" href="#Computer-Assignment-0-(Introduction-to-AI)">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -14644,10 +14645,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>پرسش 1:</h2>
-</div>
-
+<h2 id="Part-1">Part 1<a class="anchor-link" href="#Part-1">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -15046,23 +15044,19 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-این تابع به ازای هر ستون در dataframe اطلاعات زیر را محاسبه کرده و برمی‌گرداند (ستون‌های انتخاب شده را می‌توان با اسنفاده از پارامترهای ورودی تابع تغییر داد):<br/>
+<p>The <code>describe</code> function shows the following information about each column in the dataset:</p>
 <ul>
-    <li>تعداد سطرهای پر</li>
-    <li>میانگین داده‌ها</li>
-    <li>انحراف معیار داده‌ها</li>
-    <li>کوچک‌‌ترین داده</li>
-    <li>چارک اول</li>
-    <li>چارک دوم</li>
-    <li>چارک سوم</li>
-    <li>بزرگترین داده</li>
+<li>The number of non-null values</li>
+<li>Mean</li>
+<li>Standard deviation</li>
+<li>Minimum value</li>
+<li>25th percentile</li>
+<li>50th percentile (median)</li>
+<li>75th percentile</li>
+<li>Maximum value</li>
 </ul>
-تابع مذکور به صورت پیش فرض فقط ستون‌هایی که داده آن‌ها از جنس عدد است را نمایش می‌دهد. برای نمایش همه ستون‌ها می‌توانیم پارامتر ورودی include را به 'all' تغییر دهیم.</br>
-این تابع یک پارامتر ورودی به نام percentiles دارد که که یک لیست را دریافت می‌کند و داده‌ها را بر اساس این لیست دسته‌بندی کرده و خروجی آن را برمی‌گرداند. تمامی مقادیر این لیست باید عددی بین 0 و 1 باشند. مقادیر پیش فرض این لیست برابر با 
-[0.25,0.5,0.75]
- است و در نتیجه داده خروجی را با استفاده از چارک اول و دوم و سوم تقسیم کرده است.
-</div>
+<p>This function shows the mentioned values for numeric columns only. To show the values for all columns, we can use the <code>include='all'</code> parameter.</p>
+<p>This function has a <code>percentiles</code> parameter that can be used to specify the percentiles to be shown. The default value is <code>[.25, .5, .75]</code>, which are the 25th, 50th, and 75th percentiles.</p>
 
 </div>
 </div>
@@ -15129,16 +15123,13 @@ memory usage: 83.7+ KB
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-این تابع ابتدا تعداد سطرها و ستون‌ها را نشان می‌دهد. 
-به ازای هر ستون، داده‌های زیر نیز نمایش داده می‌شوند:</br>
+<p>The <code>info</code> method us used to show the following information for each column in the dataset:</p>
 <ul>
-    <li>نام ستون</li>
-    <li>تعداد سطرهای پر</li>
-    <li>جنس داده‌ها</li>
+<li>The column name</li>
+<li>The number of non-null values</li>
+<li>The data type of the column</li>
 </ul>
-در نهایت حافظه استفاده شده توسط دیتافریم نمایش داده می‌شود.
-</div>
+<p>Also, the memory usage of the dataset is shown at the end of the output.</p>
 
 </div>
 </div>
@@ -15298,9 +15289,7 @@ memory usage: 83.7+ KB
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-این تابع 5 سطر اول دیتافریم را به صورت یک جدول نمایش می‌دهد. همچنین، یک پارامتر ورودی n دارد که با مقداردهی آن می‌توانیم مشخص کنیم که چند سطر اول دیتافریم نمایش داده شود.
-</div>
+<p>The <code>head</code> method shows the first 5 rows of the dataset by default. We can specify the number of rows to be shown by passing an integer value to the <code>n</code> parameter.</p>
 
 </div>
 </div>
@@ -15460,9 +15449,7 @@ memory usage: 83.7+ KB
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-این تابع مشابه تابع head عمل می‌کند با این تفاوت که به جای 5 سطر اول، 5 سطر آخر دیتافریم نمایش داده می‌شود. این تابع نیز یک پارامتر ورودی n دارد که با مقداردهی آن می‌توانیم مشخص کنیم که چند سطر آخر دیتافریم نمایش داده شود.
-</div>
+<p>The <code>tail</code> method shows the last 5 rows of the dataset by default. We can specify the number of rows to be shown by passing an integer value to the <code>n</code> parameter.</p>
 
 </div>
 </div>
@@ -15474,10 +15461,7 @@ memory usage: 83.7+ KB
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>پرسش 2:</h2>
-</div>
-
+<h2 id="Part-2">Part 2<a class="anchor-link" href="#Part-2">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -15729,9 +15713,11 @@ memory usage: 83.7+ KB
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-با این کار جنسیت male تبدیل به عدد 0 می‌شود و جنسیت female با عدد 1 نشان داده می‌شود.
-</div>
+<p>Here, we have encoded the <code>Sex</code> column using the following mapping:</p>
+<ul>
+<li><code>male</code> -&gt; 0</li>
+<li><code>female</code> -&gt; 1</li>
+</ul>
 
 </div>
 </div>
@@ -15815,10 +15801,7 @@ memory usage: 83.7+ KB
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>پرسش 3:</h2>
-</div>
-
+<h2 id="Part-3">Part 3<a class="anchor-link" href="#Part-3">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -15903,22 +15886,19 @@ dtype: int64</pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-مزایای استفاده از میانگین برای جایگزینی داده‌های ناقص:</br>
+<p>Advantages of using <code>mean</code> for filling the missing values:</p>
 <ul>
-    <li>میانگین داده‌ها تغییر نمی‌کند</li>
-    <li>استفاده از این روش راحت است</li>
-    <li>در صورتی که پارامتر تخمینی فقط میانگین داده‌ها باشد، می‌توان از این روش استفاده کرد</li>
+<li>the mean of the data does not change</li>
+<li>it is easy</li>
+<li>if the approximate value is <code>mean</code>, then it is a good approximation</li>
 </ul>
-معایب استفاده از میانگین برای جایگزینی داده‌های ناقص:</br>
+<p>Disadvantages of using <code>mean</code> for filling the missing values:</p>
 <ul>
-    <li>این روش فقط برای داده‌های عددی کاربرد دارد</li>
-    <li>استفاده از این روش ارتباط بین متغیرها را از بین می‌برد</li>
-    <li>خطای معیار میانگین برای داده‌های ناقص کمتر از مقدار واقعی خواهد بود</li>
-    <li>مقدار انحراف معیار تغییر قابل توجهی خواهد داشت</li>
-    <li>توزیع داده‌ها در اطراف مقدار میانگین تغییر خواهد کرد</li>
+<li>it is useful only for numeric data</li>
+<li>it may destroy the relationship between the data and the target variable</li>
+<li>standard derivation is not considered</li>
+<li>the distribution of the data may change</li>
 </ul>
-</div>
 
 </div>
 </div>
@@ -15997,9 +15977,7 @@ Name: Age, dtype: float64</pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-همانطور که واضح است، مقادیر انحراف معیار و چارک‌ها به طرز قابل توجهی تغییر کرده است.
-</div>
+<p>As we can see, the <code>std</code> and the <code>percentiles</code> of the <code>Age</code> column have changed after filling the missing values with the mean.</p>
 
 </div>
 </div>
@@ -16011,10 +15989,7 @@ Name: Age, dtype: float64</pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>پرسش 4:</h2>
-</div>
-
+<h2 id="Part-4">Part 4<a class="anchor-link" href="#Part-4">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -16043,10 +16018,7 @@ Name: Age, dtype: float64</pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>پرسش 5:</h2>
-</div>
-
+<h2 id="Part-5">Part 5<a class="anchor-link" href="#Part-5">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -16134,10 +16106,7 @@ Number of females:  312
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>پرسش 6:</h2>
-</div>
-
+<h2 id="Part-6">Part 6<a class="anchor-link" href="#Part-6">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -16186,10 +16155,7 @@ Number of females:  312
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>پرسش 7:</h2>
-</div>
-
+<h2 id="Part-7">Part 7<a class="anchor-link" href="#Part-7">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -16239,10 +16205,7 @@ Number of females:  312
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>پرسش 8:</h2>
-</div>
-
+<h2 id="Part-8">Part 8<a class="anchor-link" href="#Part-8">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -16344,9 +16307,7 @@ Vectorization is 55.36900632478711 times faster
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-همانطور که نتایح نشان می‌دهد، روش vectorization حدودا 70 برابر سریع‌تر از حلقه for است.
-</div>
+<p>As the results indicate, the <code>vectorized</code> function is about 55 times faster than the <code>for</code> loop.</p>
 
 </div>
 </div>
@@ -16358,10 +16319,7 @@ Vectorization is 55.36900632478711 times faster
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>پرسش 9:</h2>
-</div>
-
+<h2 id="Part-9">Part 9<a class="anchor-link" href="#Part-9">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -16434,10 +16392,7 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>پرسش 10:</h2>
-</div>
-
+<h2 id="Part-10">Part 10<a class="anchor-link" href="#Part-10">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -16672,9 +16627,7 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-همانطور که واضح است، انحراف معیار داده‌ها به 1 و میانگین آن‌ها به 0 میل کرده است.
-</div>
+<p>The <code>std</code> and <code>mean</code> of each column can be considered ad 1 and 0, respectively.</p>
 
 </div>
 </div>
@@ -16686,10 +16639,7 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>پرسش 11:</h2>
-</div>
-
+<h2 id="Part-11">Part 11<a class="anchor-link" href="#Part-11">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -17050,12 +17000,7 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-برای پیش‌بینی زنده ماندن یا زنده نماندن افراد بهتر است از ویژگی‌هایی استفاده کنیم که تفاوت زیادی در مقادیر آن‌ها بین افرادی که زنده مانده‌اند و افرادی که زنده نمانده‌اند وجود داشته باشد. در واقع ویژگی‌ای مد نظر است که دو نمودار آن اختلاف زیادی با هم داشته باشند.<br/>
-همانطور که در نمودارها واضح است، بهترین ویژگی برای پیش‌بینی زنده ماندن یا نماندن افراد، 
-<b>جنسیت</b>
- است. در قطعه کد زیر ویژگی‌های مختلف را با هم مقایسه می‌کنیم که از انتخاب خود مطمئن شویم.
-</div>
+<p>In order to predict whether a passenger will survive or not, we'd better use a feature that is highly correlated with the <code>Survived</code> column. The <code>Sex</code> column is highly correlated with the <code>Survived</code> column, so we can use it to predict whether a passenger will survive or not.</p>
 
 </div>
 </div>
@@ -17109,9 +17054,7 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-در بخش زیر، دیکشنری survivedInMiddle بیانگر این است که بین نقاط تلاقی دو نمودار ویژگی مدنظر، کدام نمودار بالاتر از دیگری قرار می‌گیرد.
-</div>
+<p>In the following block, the <code>survivedInMiddle</code> dictionary indicates whether the majority of the passengers survived in the middle of the plot or not.</p>
 
 </div>
 </div>
@@ -17182,9 +17125,7 @@ Embarked -&gt; Correct Predictions: 550 | Accuracy: 61.87%
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-همانطور که نتایج نشان می‌دهد، دقت پیش‌بینی با استفاده از ویژگی جنسیت بالاتر از دیگر ویژگی‌ها است.
-</div>
+<p>As noted in the previous section, the <code>Sex</code> feature is the best feature to use for predicting whether a passenger will survive or not.</p>
 
 </div>
 </div>
@@ -17196,10 +17137,7 @@ Embarked -&gt; Correct Predictions: 550 | Accuracy: 61.87%
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>پرسش 12:</h2>
-</div>
-
+<h2 id="Part-12">Part 12<a class="anchor-link" href="#Part-12">&#182;</a></h2>
 </div>
 </div>
 </div>
