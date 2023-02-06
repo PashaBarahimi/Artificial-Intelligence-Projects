@@ -14539,6 +14539,10 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
   display: none;
 }
 
+@page {
+    margin: 0.5in; /* Margin for each printed piece of paper */
+}
+
 @media print {
   .jp-Cell-inputWrapper,
   .jp-Cell-outputWrapper {
@@ -14593,10 +14597,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h1>پروژه اول</h1>
-</div>
-
+<h1 id="Computer-Assignment-1-(Search)">Computer Assignment 1 (Search)<a class="anchor-link" href="#Computer-Assignment-1-(Search)">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -14611,7 +14612,6 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">timeit</span> <span class="kn">import</span> <span class="n">default_timer</span> <span class="k">as</span> <span class="n">timer</span>
 <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span><span class="p">,</span> <span class="n">copy</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Union</span>
-<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
 <span class="kn">import</span> <span class="nn">heapq</span>
 </pre></div>
@@ -14647,8 +14647,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">Graph</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Graph</span><span class="p">:</span>
     <span class="n">n</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">m</span><span class="p">:</span> <span class="nb">int</span>
     <span class="n">current</span><span class="p">:</span> <span class="nb">int</span>
@@ -14706,42 +14705,25 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-برای مدل کردن مسئله، هر 
-state
-را با یک گراف نمایش می‌دهیم. 
-این
-stateها 
-شامل مرید‌های باقی‌مانده و دستور غذاهای باقی مانده آن‌ها، مکان فعلی سید در نقشه، وضعیت گذر از رئوس صعب العبور و زمان باقی مانده برای خروج از راس فعلی (در صورتی که راس فعلی صعب العبور باشد) است.
-همچنین در هر 
-state
-مقادیر زیر را نیز نگهداری می‌کنیم:
+<p>Each state is defined as a graph which contains a list of remaining devotees, a list of remaining recipes, sayid's current location, the status of passage of difficult peaks, and the remaining time to get out of the current location (if it is a difficult peak). Also, the following values are stored in each state:</p>
 <ul>
-    <li>هزینه رسیدن به state فعلی</li>
-    <li>پدر state فعلی</li>
-    <li>یال‌های موجود در گراف</li>
+<li><code>cost</code>: the cost of the path from the initial state to the current state</li>
+<li><code>parent</code>: the parent state of the current state</li>
+<li><code>edges</code>: the list of edges in the map</li>
 </ul>
-دو
-state
-را در صورتی یکسان در نظر می‌گیریم که موارد زیر در آن‌ها یکسان باشند:
-<ol>
-    <li>مکان فعلی سید</li>
-    <li>مریدهای باقی‌مانده و دستور غذاهای باقی‌مانده برای هر مرید</li>
-    <li>وضعیت گذر از رئوس صعب العبور</li>
-</ol>
-تست
-goal
-را به این صورت در نظر می‌گیریم که هیچ مرید و دستور غذایی باقی نمانده باشد.<br/>
-همچنین برای 
-actionها،
-از هر راس می‌توانیم به راس همسایه برویم و یا اینکه یک واحد از زمان باقی‌مانده حضور در مکان فعلی (راس صعب العبور) کم کنیم.
-زمانی که به راس همسایه می‌رویم، بررسی می‌کنیم که در آن دستور غذا حفظ نشده و یا مریدی که تمام دستور غذاهای آن حفظ شده وجود دارد یا خیر، در صورت وجود، تغییرات لازم را در 
-state
-جدید اعمال می‌کنیم.<br/>
-همچنین
-initial state
-را گراف ورودی سوال با تمام ویژگی‌های ورودی در نظر می‌گیریم.
-</div>
+<p>We consider to states as equal if the following values are equal in both states:</p>
+<ul>
+<li>sayid's current location</li>
+<li>remaining devotees and remaining recipes for each devotee</li>
+<li>the status of passage of difficult peaks</li>
+</ul>
+<p>Goal state is defined as a state in which there exists no remaining devotees and no remaining recipes.</p>
+<p>The actions can be one of the following:</p>
+<ul>
+<li>decrease the remaining time of the current location by 1 if it is a difficult peak</li>
+<li>move to an adjacent location and memorize any recipe that is found there and satisfy any devotee that is found there if possible</li>
+</ul>
+<p>Initial state is the input graph with all the values given in the input file.</p>
 
 </div>
 </div>
@@ -14812,22 +14794,14 @@ initial state
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-ورودی‌ها در فولدر 
-data
-و به شکل
-input(i).txt
-قرار گرفته‌اند. شماره تست‌ها
-(i)
-به صورت زیر است:
-<ol>
-    <li>تست شماره 1 در تست کیس‌های اصلی و ساده</li>
-    <li>تست شماره 2 در تست کیس‌های ساده</li>
-    <li>تست شماره 3 در تست کیس‌های ساده</li>
-    <li>تست شماره 2 در تست کیس‌های اصلی</li>
-    <li>تست شماره 3 در تست کیس‌های اصلی</li>
-</ol>
-</div>
+<p>Inputs are given in <code>data</code> folder and are in <code>input#.txt</code> format. They are as follows:</p>
+<ul>
+<li><code>input1.txt</code>: the first test case in both simple and main tests</li>
+<li><code>input2.txt</code>: the second test case in simple tests</li>
+<li><code>input3.txt</code>: the third test case in simple tests</li>
+<li><code>input4.txt</code>: the second test case in main tests</li>
+<li><code>input5.txt</code>: the third test case in main tests</li>
+</ul>
 
 </div>
 </div>
@@ -14945,25 +14919,7 @@ input(i).txt
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-می‌دانیم که برای عبور از هر یال به 1 ثانیه زمان نیاز داریم. از طرفی اگر در راس صعب العبوری باشیم که
-n
-ثانیه از زمان خروج از راس باقی مانده باشد، به اندازه
-n
-واحد عمق این 
-state
-را افزایش می‌دهیم. برای مثال فرض کنید که در حال حاضر در
-stateای
-باشیم که راس فعلی سید یک راس صعب العبور باشد و زمان باقی‌مانده از زمان خروج از راس برابر با 5 باشد، این
-state
-در الگوریتم 
-BFS
-تا 5 عمق پایین‌تر تکرار می‌شود و از عمق ششم می‌توانیم 
-stateهایی
-که از حرکت سید به راس‌های همسایه ساخته می‌شوند را در نظر بگیریم. این مورد باعث می‌شود از طریق رئوس صعب العبور راه اشتباهی با هزینه بیشتر طی نکنیم. پس در نهایت می‌توان گفت اندازه هر یال برابر با 1 واحد است و الگوریتم
-BFS
-پاسخ بهینه را به ما می‌دهد.
-</div>
+<p>We know that passing an edge will take 1 second. If we are stuck in a difficult peak and <code>n</code> seconds are remaining to get out of it, we will expand the current state <code>n</code> times. For example, if we are stuck in a difficult peak and 5 seconds are left to get out of it, the current state will be repeated for 5 depths in the search tree, and in the $6^{th}$ depth, we can move to an adjacent location. This method results in not choosing a wrong path through a difficult peak. As a result, the <code>BFS</code> algorithm will be able to find the optimal solution.</p>
 
 </div>
 </div>
@@ -15052,9 +15008,7 @@ Time: 1.2077 seconds
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-همانطور که مشاهده می‌شود، زمان پاسخ دادن تست‌ها بسیار کمتر از محدودیت زمانی ذکر شده در صورت سوال است.
-</div>
+<p>The run time of the algorithm is much less than the time limit.</p>
 
 </div>
 </div>
@@ -15124,37 +15078,15 @@ Time: 1.2077 seconds
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-الگوریتم
-DFS
-در حالت عادی پاسخ بهینه را به ما نمی‌دهد. زیرا ممکن است در شاخه اول پاسخی بلندتر از شاخه دوم یافت شود. اما زمانی که از 
-IDS
-استفاده می‌کنیم، این الگوریتم پاسخ بهینه را پیدا می‌کند. با توجه به اینکه عمق را 1 واحد 1 واحد افزایش می‌دهیم، اگر جواب کوتاه‌تری وجود داشت، در همان عمق به جواب می‌رسیدیم.<br/>
-این الگوریتم تعداد 
-stateهای
-بسیار زیادی (افزایش با مرتبه نمایی) تولید می‌کند که درصد ناچیزی از آن‌ها غیر تکراری هستند. <br/>
-اگر خط کامنت شده در تابع را از کامنت در بیاوریم، می‌توانیم تعداد 
-stateهای
-غیر تکراری را در هر عمق مشاهده کنیم. همچنین اگر 
-discovered
-را از
-set
-به 
-list
-تغییر دهیم، می‌توانیم تعداد تمام
-stateهای
-هر عمق را مشاهده کنیم. این اعداد برای تست شماره 4 به صورت زیر است:
+<p>The <code>DFS</code> algorithm will not give us the optimal solution because a better path may be found later in the search tree. However, when we use the <code>IDS</code> algorithm, we will be able to find the optimal solution. his is because the <code>IDS</code> algorithm will search the tree in depth-first manner, but it will limit the depth of the search tree. As a result, if a better path has existed in the tree, it would have been found in the previous depths</p>
+<p>This algorithm will visit many states (increasing exponentially with the depth of the search tree) and only a small percentage of them are not repeated.</p>
+<p>If we uncomment the <code>print</code> statements in the code, the number of non-repeated states will be shown. Also, if we change the type of <code>discovered</code> from <code>set</code> to <code>list</code>, the total number of states will be shown. These numbers are presented below for <code>input4.txt</code>:</p>
 <ul>
-    <li>عمق 6: حدود 90 هزار state که حدود 1000تای آن‌ها غیر تکراری هستند</li>
-    <li>عمق 7: حدود 660 هزار state که حدود 2000تای آن‌ها غیر تکراری هستند</li>
-    <li>عمق 8: حدود 4.8 میلیون state که حدود 3000تای آن‌ها غیر تکراری هستند</li>
+<li>Depth = 6 : 90k total states, 1k non-repeated states</li>
+<li>Depth = 7 : 660k total states, 2k non-repeated states</li>
+<li>Depth = 8 : 4.8M total states, 3k non-repeated states</li>
 </ul>
-لازم به ذکر است که پاسخ نهایی در عمق 12 قرار دارد که اگر تعداد
-stateها
-به همین شیوه به صورت نمایی ادامه پیدا کند، تعداد
-stateها
-در عمق 12 به بیش از 5 میلیارد می‌رسد. به همین دلیل زمان اجرایی این الگوریتم برای تست‌های 4 و 5 بسیار زیاد است.
-</div>
+<p>If we continue to increase the depth, the number of total states will be more than 5 billion in the $12^{th}$ depth. As a result, the algorithm will take a long time to find the optimal solution for <code>input4.txt</code> and <code>input5.txt</code>.</p>
 
 </div>
 </div>
@@ -15231,22 +15163,8 @@ Time: 1.5436 seconds
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-با وجود اینکه در صورت سوال محدودیت زمانی برای این الگوریتم ذکر نشده است، زمان پاسخگویی به تست‌ها بسیار معقول است.
-همچنین برای تست‌های 4 و 5 با توجه به طولانی بودن زمان اجرا، تصمیم به اجرای آن‌ها در یک سرور شخصی (با سی پی یو تک هسته‌ای) گرفتم که نتیجه آن در بخش زیر قابل مشاهده است.<br/>
-لازم به ذکر است که چون همسایه‌های راس 
-explore
-شده در یک ست قرار می‌گیرند (ترتیب ثابتی وجود ندارد) و سپس تابع 
-DFS
-بر روی آن‌ها صدا زده می‌شود، مسیر یافت شده و تعداد 
-stateهای
-پردازش شده لزوما با هر بار اجرا ثابت نخواهند ماند و ممکن است تغییر یابند.<br/>
-همچنین، تعداد
-stateهای
-نمایش داده شده فقط مربوط به
-stateهای
-غیر تکراری در <b>عمق آخر</b> است.
-</div>
+<p>Despite the fact that no limit is mentioned in the problem for <code>IDS</code> algorithm, the algorithm takes a reasonable amount of time to find the optimal solution for simple tests.</p>
+<p>I decided to run the algorithm for <code>input4.txt</code> and <code>input5.txt</code> in a private server with 1 core and 2 GB RAM. The results are presented in the following image:</p>
 
 </div>
 </div>
@@ -15314,78 +15232,17 @@ stateهای
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-برای هیوریستیک مورد زیر را در نظر می‌گیریم:<br/>
-تعداد مریدها و دستور غذاهای باقی مانده (این رئوس را به صورت یکتا در نظر می‌گیریم زیرا ممکن است در یک راس چند مرید و چند دستور غذا باقی مانده باشد)<br/>
-برای اثبات 
-consistent
-بودن این هیوریستیک به شکل زیر عمل می‌کنیم:<br/>
-دو
-state
-را با نام‌های
-A و C
-در نظر بگیرید به طوری که 
-A
-یکی از جدهای
-C
-است. 
-حال فرض کنید که تعداد رئوس (مریدها و دستور غذاها) باقی مانده در 
-A
-برابر با 
-n
-است و تعداد رئوس باقی مانده در
-C
-برابر با
-m
-باشد. در این صورت هنگام رسیدن از 
-A
-به
-C
-باید حداقل از
-n-m
-راس بگذریم. با توجه به اینکه هزینه هر یال برابر با 1 واحد است، می‌توان گفت
-cost(A to C) &GreaterEqual; n-m
-از طرفی می‌دانیم که هیوریستیک ذکر شده برای هر 
-state
-برابر با تعداد رئوس باقی مانده است به طوری که می‌توان گفت
-h(A) = n
-و
-h(C) = m
-و در نتیجه به 
-cost(A to C) &GreaterEqual; h(A) - h(C)
-می‌رسیم. با توجه به این مورد، اثبات می‌شود که این هیوریستیک 
-consistent
-است.
-<br/>
-لازم به ذکر است که می‌توانستیم از 
-MST
-به عنوان هیوریستیک استفاده کنیم به این صورت که برای هر 
-state
-یک درخت کمینه تشکیل می‌دادیم که نیازی نیست برای کل رئوس گراف پوشا باید بلکه لازم است برای رئوس باقی مانده (مریدها و دستور غذاها) پوشا باشد. در این الگوریتم هر زمانی که نیاز باشد می‌توانیم از رئوس دیگر استفاده کنیم. این هیوریستیک گرچه هیوریستیک قوی‌تری است، اما زمان زیادی برای محاسبه نیاز دارد که در نهایت مرتبه زمانی الگوریتم را افزایش می‌دهد.
-</div>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-الگوریتم
-*A
-جواب بهینه را محاسبه می‌کند. البته لازم به ذکر است که برای این کار لازم است 2 مورد رعایت شود:
-<ol>
-    <li>هیوریستیک مورد استفاده باید consistent باشد.</li>
-    <li>تست goal باید زمان پاپ شدن state از frontier انجام شود زیرا اگر این تست را زمان اضافه کردن state به frontier انجام دهیم، لزوما پاسخ ما بهینه نخواهد بود.</li>
-</ol>
-با توجه به اینکه هر 2 مورد ذکر شده در الگوریتم رعایت شده است، می‌توان گفت الگوریتم
-*A
-پاسخ بهینه را به دست می‌آورد.
-</div>
+<p>For heuristic, I consider the number of remaining devotees and the number of remaining recipes. However, it is important to note that these values will be considered for unique vertices. For example, if there are 2 devotees in a vertex, and there are no recipes left, the heuristic value will be 1.</p>
+<p>Proving the consistency of the heuristic:</p>
+<p>Consider two states <code>A</code> and <code>C</code> in which <code>C</code> is one of the grandchildren of <code>A</code>. Also, consider the number of remaining vertices (devotees and recipes unique vertices) in <code>A</code> and <code>C</code> to be <code>n</code> and <code>m</code> respectively. In this case, we should pass at least <code>n-m</code> edges to reach <code>C</code> from <code>A</code>. As a result, We know that passing each edge will take 1 second. Therefore, we can say: $$cost(A\ to\ C) \geq n-m = h(A) - h(C)$$</p>
+<p>As a result, the heuristic is consistent.</p>
+<p>Also, we could use <code>MST</code> algorithm as a heuristic. In this case, for each state, we will find the minimum spanning tree of the remaining vertices. Although this is a better heuristic, it will take a long time.</p>
+<p><code>A*</code> algorithm will be able to find the optimal solution if the following conditions are met:</p>
+<ul>
+<li>The heuristic is consistent</li>
+<li>Goal test should be done when popping a state from the frontier</li>
+</ul>
+<p>As both conditions are met, <code>A*</code> algorithm will be able to find the optimal solution.</p>
 
 </div>
 </div>
@@ -15474,37 +15331,9 @@ Time: 1.1771 seconds
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-همانطور که مشاهده می‌شود، الگوریتم
-*A
-تست‌های ورودی را در زمان معقول و بسیار کمتر از محدودیت زمانی صورت سوال، پاسخ داده است.
-</div>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-در کل می‌توان گفت بین تمامی الگوریتم‌هایی که تا به اینجا استفاده شدند، همگی پاسخ بهینه را بدست می‌آورند اما الگوریتم
-*A
-در کمترین زمان ممکن پاسخ را به دست می‌آورد.<br/>
-تفاوت بعدی بین الگوریتم‌های استفاده شده، حافظه مصرفی الگوریتم‌ها است. الگوریتم‌های
-BFS و *A
-به صورت 
-exponential
-حافظه مصرف می‌کنند. در صورتی که حافظه مصرفی الگوریتم
-IDS
-به صورت
-خطی یا به عبارت دیگر
-polynomial
-است. در نتیجه در این الگوریتم مشکل حافظه نخواهیم داشت در صورتی که در دو الگوریتم قبلی ممکن است در تست‌های بزرگ، مشکل حافظه رخ دهد.
-</div>
+<p>As it can be seen above, the <code>A*</code> algorithm has a great performance. It is able to find the optimal solution for all tests in a reasonable amount of time (less than the time limit).</p>
+<p>All of the algorithms that are used until now, will be able to find the optimal solution. However, the <code>A*</code> algorithm has the best performance.</p>
+<p>The next difference is the memory usage. The <code>BFS</code> and <code>A*</code> algorithms use exponential memory. On the other hand, the <code>IDS</code> algorithm uses linear memory. In this case, we will have no problem with the memory usage.</p>
 
 </div>
 </div>
@@ -15593,18 +15422,8 @@ Time: 0.3648 seconds
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-همانطور که مشاهده می‌شود، در الگوریتم 
-Weighted *A
-تعداد 
-stateهای
-مشاهده شده و زمان اجرا به مراتب کمتر از الگوریتم
-*A
-است. این اتفاق به دلیل این است که در این الگوریتم هیوریستیک مورد استفاده در عددی ضرب می‌شود زیرا می‌دانیم اگر یک هیوریستیک
-consistent
-باشد، همواره کمتر از هزینه واقعی خواهد بود و در نتیجه با ضرب عددی در آن تلاش می‌کنیم این مقدار را به هزینه واقعی نزدیک‌تر کنیم.<br/>
-این الگوریتم در این حالت خاص پاسخ بهینه را به ما داده است ولی لزوما همیشه بهینه نخواهد بود.
-</div>
+<p>The number of visited states and the run time of the <code>Weighted A*</code> algorithm is much less than the <code>A*</code> algorithm. This is because the heuristic will be multiplied by a constant value in order to make it more realistic.</p>
+<p>In this test, the <code>Weighted A*</code> algorithm has given us the optimal solution. However, it is not guaranteed that it will give us the optimal solution in all cases.</p>
 
 </div>
 </div>
@@ -15693,13 +15512,9 @@ Time: 0.4214 seconds
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-همانطور که مشاهده می‌شود، به ازای
-&alpha; = 1.4،
-الگوریتم
-Weighted *A
-پاسخ بهینه را به ما نداده است. در تست شماره 4، عمق پاسخ بهینه 12 است در صورتی که پاسخ محاسبه شده در این بخش در عمق 13 قرار دارد.
-</div>
+<p>As it is shown above, the <code>Weighted A*</code> algorithm has not given us the optimal solution for $\alpha = 1.4$. In <code>input4.txt</code>, the algorithm has found a solution with a cost of 13, while the optimal solution has a cost of 12.</p>
+<p>In conclusion, the <code>Weighted A*</code> can have a great performance if the value of $\alpha$ is chosen properly. However, it is not guaranteed that it will give us the optimal solution in all cases.</p>
+<p>The results are shown in the following tables:</p>
 
 </div>
 </div>
@@ -15711,45 +15526,7 @@ Weighted *A
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-در نهایت می‌توان گفت الگوریتم
-Weighted *A
-با انتخاب ضریب مناسب، در کمترین زمان ممکن پاسخ را محاسبه می‌کند ولی این پاسخ لزوما بهینه نیست.
-</div>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-جداول مربوط به تست کیس‌ها در بخش زیر آورده شده‌اند. لازم به ذکر است که تعداد 
-stateهای
-دیده شده در هر تست کیس، تعداد
-stateهای
-<b>غیر تکراری</b>
-است.
-</div>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>تست شماره 1 (تست اول در تست کیس‌های اصلی و ساده)</h2>
-</div>
-
+<h2 id="input1.txt">input1.txt<a class="anchor-link" href="#input1.txt">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -15813,10 +15590,7 @@ stateهای
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>تست شماره 2 (تست دوم در تست کیس‌های ساده)</h2>
-</div>
-
+<h2 id="input2.txt">input2.txt<a class="anchor-link" href="#input2.txt">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -15880,10 +15654,7 @@ stateهای
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>تست شماره 3 (تست سوم در تست کیس‌های ساده)</h2>
-</div>
-
+<h2 id="input3.txt">input3.txt<a class="anchor-link" href="#input3.txt">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -15947,10 +15718,7 @@ stateهای
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>تست شماره 4 (تست دوم در تست کیس‌های اصلی)</h2>
-</div>
-
+<h2 id="input4.txt">input4.txt<a class="anchor-link" href="#input4.txt">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -16014,10 +15782,7 @@ stateهای
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div dir='rtl'>
-<h2>تست شماره 5 (تست سوم در تست کیس‌های اصلی)</h2>
-</div>
-
+<h2 id="input5.txt">input5.txt<a class="anchor-link" href="#input5.txt">&#182;</a></h2>
 </div>
 </div>
 </div>
