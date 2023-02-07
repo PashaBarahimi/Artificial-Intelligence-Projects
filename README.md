@@ -1,5 +1,17 @@
 # Artificial Intelligence Projects
 
+- [Artificial Intelligence Projects](#artificial-intelligence-projects)
+  - [Projects](#projects)
+    - [CA0 - Introduction to AI](#ca0---introduction-to-ai)
+    - [CA1 - Search](#ca1---search)
+    - [CA2 - Genetics](#ca2---genetics)
+    - [CA3 - Game](#ca3---game)
+    - [CA4 - Naive Bayes](#ca4---naive-bayes)
+    - [CA5 - Machine Learning](#ca5---machine-learning)
+    - [CA6 - Neural Networks](#ca6---neural-networks)
+      - [Part 1](#part-1)
+      - [Part 2](#part-2)
+
 ## Projects
 
 ### CA0 - Introduction to AI
